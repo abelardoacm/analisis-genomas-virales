@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: TallerBashScripting_00.md
+  sections:
+    - file: TallerBashScripting_01.md
+    - file: TallerBashScripting_02.md
+    - file: TallerBashScripting_03.md
+    - file: TallerBashScripting_04.md
+    - file: TallerBashScripting_05.md
+    - file: TallerBashScripting_06.md
+- file: de_novo_00.md
+  sections:
+    - file: de_novo_01.md
+    - file: de_novo_02.md
+    - file: de_novo_03.md
+    - file: de_novo_04.md

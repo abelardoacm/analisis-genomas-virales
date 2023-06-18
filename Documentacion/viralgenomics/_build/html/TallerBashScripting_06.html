@@ -1,0 +1,631 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Control de calidad de lecturas &#8212; Analisis de genomas virales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TallerBashScripting_06';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ensamble de novo" href="de_novo_00.html" />
+    <link rel="prev" title="Scripts interactivos" href="TallerBashScripting_05.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenido al curso de análisis de genomas virales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="TallerBashScripting_00.html">Taller Bash Scripting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_01.html">Introducción al Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_02.html">Conceptos clave en Bash Scripting:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_03.html">Buenas prácticas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_04.html">Debugging y solución de problemas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_05.html">Scripts interactivos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Control de calidad de lecturas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTallerBashScripting_06.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TallerBashScripting_06.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Control de calidad de lecturas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset"><strong>Sample dataset</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fastqc"><strong>FastQC</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-un-informe-de-calidad-de-lecturas"><strong>Diseño de un informe de calidad de lecturas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informe-default"><strong>Informe</strong> <em><strong>default</strong></em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informe-agregado"><strong>Informe agregado</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informe-visual"><strong>Informe visual</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="control-de-calidad-de-lecturas">
+<h1>Control de calidad de lecturas<a class="headerlink" href="#control-de-calidad-de-lecturas" title="Permalink to this heading">#</a></h1>
+<section id="sample-dataset">
+<h2><strong>Sample dataset</strong><a class="headerlink" href="#sample-dataset" title="Permalink to this heading">#</a></h2>
+<p>Los archivos con los que trabajaremos en este taller son archivos FASTQ, que cuentan con bloques de cuatro tipos de lineas:</p>
+<ol class="arabic simple">
+<li><p><strong>Línea de encabezado</strong>: comienza con un carácter ‘&#64;’ seguido de una identificación única para la secuencia y, a veces, información adicional, como los identificadores del instrumento de secuenciación y los números de corrida.</p></li>
+<li><p><strong>Línea de secuencia</strong>: la secuencia de nucleótidos en sí, donde cada nucleótido se representa por un solo carácter (A para adenina, C para citosina, G para guanina, T para timina, N para cualquier base o una base que no se pudo determinar).</p></li>
+<li><p><strong>Línea separadora</strong>: una línea que usualmente contiene solo el carácter ‘+’ y, a veces, la misma información que la línea de encabezado.</p></li>
+<li><p><strong>Línea de calidad</strong>: caracteres que representan la calidad de cada base en la línea de secuencia. La calidad se mide como un valor ASCII de desplazamiento, y un valor de calidad más alto indica una mayor confianza en la base correspondiente en la secuencia de nucleótidos. La calidad de las bases en los archivos FASTQ se determina mediante un valor conocido como PHRED score, que se mide en una escala logarítmica.</p></li>
+</ol>
+<p>Los archivos FASTQ que usaremos provienen de una secuenciación de Illumina. En este experimento, se utilizó un método llamado “enriquecimiento con amplicones” para aumentar la cantidad de material genético del virus SARS-CoV-2 en las muestras antes de la secuenciación.</p>
+<p>Tenemos dos muestras, cada una con dos archivos FASTQ asociados.</p>
+<ul class="simple">
+<li><p>Los archivos de la muestra 1 son <strong>sample1_R1.fastq.gz</strong> y <strong>sample1_R2.fastq.gz</strong>, y los archivos de la muestra 2 son <strong>sample2_R1.fastq.gz</strong> y <strong>sample2_R2.fastq.gz</strong>.</p></li>
+<li><p>Los archivos <strong>R1</strong> contienen la primera lectura de cada par de lecturas secuenciadas, y los archivos <strong>R2</strong> contienen la segunda lectura de cada par. Estos son lo que se conoce como lecturas paired-end, lo que significa que cada fragmento de RNA fue secuenciado desde ambos extremos. En el caso de los genomas virales, puede ayudar con ciertos tipos de análisis, como la identificación de variantes o la interpretación de la estructura del genoma.</p></li>
+</ul>
+<p>Además de los archivos FASTQ, también tenemos dos archivos adicionales que nos proporcionan información sobre los primers que se utilizaron en el experimento de enriquecimiento con amplicones.</p>
+<ul class="simple">
+<li><p>Los archivos <strong>nCoV-2019.artic.primers.fasta</strong> y <strong>nCoV-2019.schemeMod.bed</strong> contienen las secuencias de los primers y las ubicaciones de los cebadores en el genoma del virus SARS-CoV-2, respectivamente.</p></li>
+</ul>
+<p><strong>NOTA: En muchos escenarios, al trabajar con dato de secuenciación nuestra primer labor bioinformática será la remoción de adaptadores. Estas son pequeñas secuencias de DNA/RNA que se ligan a los extremos de las cadenas a secuenciar. Estos proporcionan sitios de unión a los primers y están diseñados para facilitar la unión de las moléculas a la superficie de la plataforma. En análisis más elaborados, estps adaptadores pueden contener secuencias muy específicas que permitan hacer <strong>multiplexing</strong>, es decir, mezclar múltiples muestras en un sólo experimento de secuenciación y distinguirlas <em>a posteriori</em>.</strong></p>
+<p>Remover los adaptadores es una tarea sencilla que puede realizarse con <em><strong><code class="docutils literal notranslate"><span class="pre">cutadapt</span></code></strong></em>. Por ejemplo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cutadapt<span class="w"> </span>-a<span class="w"> </span>ADAPTER_SEQUENCE<span class="w"> </span>-o<span class="w"> </span>output.fastq<span class="w"> </span>input.fastq
+</pre></div>
+</div>
+<p>O para archivos <em><strong>paired-end</strong></em> (como los nuestros), En este tipo de secuenciación, ambos extremos de cada fragmento de DNA/RNA se secuencian, típicamente para obtener una mayor resolución de la secuencia y para poder identificar reordenamientos y deleciones que pueden no ser evidentes con la secuenciación de un solo extremo. <strong>Esta es la técnica de secuenciación más común al trabajar con genomas virales.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remocion de adaptadores en muestras paired-end</span>
+cutadapt<span class="w"> </span>-a<span class="w"> </span>ADAPTER1<span class="w"> </span>-A<span class="w"> </span>ADAPTER2<span class="w"> </span>-o<span class="w"> </span>trimmed_R1.fastq<span class="w"> </span>-p<span class="w"> </span>trimmed_R2.fastq<span class="w"> </span>input_R1.fastq<span class="w"> </span>input_R2.fastq
+</pre></div>
+</div>
+<p>Y finalmente para <em><strong>multiplex</strong></em> podemos ingresar un listado de adaptadores <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code> con el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cutadapt<span class="w"> </span>-q<span class="w"> </span><span class="m">20</span><span class="w"> </span>-a<span class="w"> </span>file:adapters.fa<span class="w"> </span>-o<span class="w"> </span>output.fastq<span class="w"> </span>input.fastq
+</pre></div>
+</div>
+</section>
+<section id="fastqc">
+<h2><strong>FastQC</strong><a class="headerlink" href="#fastqc" title="Permalink to this heading">#</a></h2>
+<p>FastQC es una herramienta de control de calidad que proporciona una visión rápida de la calidad de los datos de secuenciación en bruto. Su inclusión en pipelines bioinformáticos que utilizan datos de secuenciación es vital, ya que la calidad de las lecturas puede determinar qué objetivos son alcanzables, así como las mejores opciones para llegar a ellos.</p>
+<p>FastQC realiza evaluaciones de calidad en varios aspectos. Algunas de las métricas que analiza incluyen: la calidad de las bases a lo largo de las lecturas, la distribución de la longitud de las lecturas, la presencia de secuencias sobre-representadas (que podrían ser adaptadores o contaminantes).</p>
+<p>Podemos ejecutar FastQC para un archivo fastq con el comando</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastqc<span class="w"> </span>&lt;archivo&gt;
+</pre></div>
+</div>
+<p>Al ejecutarlo se generará un archivo de salida, con extensión <code class="docutils literal notranslate"><span class="pre">.html</span></code> que incluye un informe detallado de la calidad de los datos de secuenciación.</p>
+<p>El conocimiento de las muestras, experimento y objetivos del estudio definirán la interpretación sobre las calificaciones otorgadas en las pruebas de calidad.</p>
+</section>
+<section id="diseno-de-un-informe-de-calidad-de-lecturas">
+<h2><strong>Diseño de un informe de calidad de lecturas</strong><a class="headerlink" href="#diseno-de-un-informe-de-calidad-de-lecturas" title="Permalink to this heading">#</a></h2>
+<section id="informe-default">
+<h3><strong>Informe</strong> <em><strong>default</strong></em><a class="headerlink" href="#informe-default" title="Permalink to this heading">#</a></h3>
+<p>FastQC ofrece una serie de gráficos y tablas con métricas clave. Para resumir esto en un informe, para en ensamble de genomas virales podemos centrarnos en las siguientes secciones:</p>
+<ul class="simple">
+<li><p><em><strong>Basic Statistics</strong></em>: Proporciona información general sobre el archivo FASTQ, como el número de lecturas, la longitud de la secuencia, la calidad media de la secuencia, el contenido de GC, etc.</p></li>
+<li><p><em><strong>Per base sequence quality</strong></em>: Muestra la calidad de las bases a lo largo de todas las secuencias. Las líneas azules representan el rango intercuartil de la calidad, mientras que la línea roja representa la mediana. Esta gráfica ayuda a identificar cualquier disminución sistemática de la calidad hacia el final de las lecturas (esto puede pasar por acumulación de errores, degradación de señal de fluorescencia o phasing).</p></li>
+<li><p><em><strong>Per sequence quality scores</strong></em>: Muestra la distribución de la calidad promedio de las secuencias. Ayuda a identificar si hay lecturas de baja calidad en el conjunto de datos.</p></li>
+<li><p><em><strong>Per base sequence content</strong></em>: Muestra la proporción de cada base en cada posición en las lecturas. Idealmente, cada posición debería tener un contenido de base uniforme.</p></li>
+<li><p><em><strong>Per sequence GC content</strong></em>: Compara el contenido de GC de las secuencias con un modelo teórico. Una distribución significativamente diferente puede indicar contaminación.</p></li>
+<li><p><em><strong>Sequence Length Distribution</strong></em>: Muestra la distribución de la longitud de las secuencias. Debería ser consistente con las longitudes de secuencia esperadas.</p></li>
+<li><p><em><strong>Sequence Duplication Levels</strong></em>: Muestra el nivel de duplicación de secuencias. Un alto nivel de duplicación puede indicar problemas técnicos.</p></li>
+<li><p><em><strong>Overrepresented sequences</strong></em>: Enumera las secuencias que aparecen con mayor frecuencia de lo esperado. Estas secuencias pueden ser contaminantes, adaptadores, etc.</p></li>
+</ul>
+<p>Entre los principales desafíos en la secuenciación de virus, podemos describir los siguientes:</p>
+<ul class="simple">
+<li><p><strong>Alta tasa de mutación</strong>: Muchos virus, especialmente los Riboviria (RNA), tienen tasas de mutación altas. Esto significa que la población viral dentro de un solo huésped puede ser muy diversa, por lo que un control de calidad muy estricto sobre la variación puede derivar en pérdidas de lecturas correctas.</p></li>
+<li><p><strong>Genomas pequeños</strong>: Por su tamaño, los genomas virales pueden ser enmascarados por lecturas de sus hospederos u otras entidades biológicas presentes.</p></li>
+<li><p><strong>Coinfección y recombinación</strong>: Los virus pueden recombinarse entre sí si un huésped está infectado con más de un tipo de virus a la vez. Esto puede resultar en lecturas que pudieran catalogarse como inconsistentes.</p></li>
+<li><p><strong>Persistencia y latencia</strong>: Los estados de latencia y la rápida degradación de su material pueden provocar que el material genético secuenciado sea insuficiente.</p></li>
+</ul>
+</section>
+<section id="informe-agregado">
+<h3><strong>Informe agregado</strong><a class="headerlink" href="#informe-agregado" title="Permalink to this heading">#</a></h3>
+<p>Debido al formato de salida, FastQC no proporciona una forma sencilla de exportar sus resultados en un formato fácilmente procesable, por lo que su automatización puede requerir el uso de otras herramientas.</p>
+<p>Por ejemplo, MultiQC es un programa que agrega resultados de FastQC y otras herramientas en un informe único. Podemos llamar a FastQC para procesar los archivos fastq en un directorio, y posteriormente agregar sus resultados mediante MultiQC.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># directorio de entrada</span>
+<span class="nv">DIR_ENTRADA</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+
+<span class="c1"># Validar la entrada</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Uso: </span><span class="nv">$0</span><span class="s2"> /ruta/a/directorio&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="c1"># Ejecutar FastQC en todos los archivos FASTQ del directorio</span>
+fastqc<span class="w"> </span><span class="nv">$DIR_ENTRADA</span>/*.fastq.gz
+
+<span class="c1"># Generar informe de MultiQC</span>
+multiqc<span class="w"> </span><span class="nv">$DIR_ENTRADA</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$DIR_ENTRADA</span>/multiqc_report
+</pre></div>
+</div>
+<p>Al analizar nuestros resultados podemos respondernos las siguientes preguntas:</p>
+<ul class="simple">
+<li><p>¿Cómo varía la calidad de las lecturas entre las muestras?</p></li>
+<li><p>¿Hay alguna muestra que tenga un contenido de GC notablemente diferente?</p></li>
+<li><p>¿Hay evidencia de secuencias sobre-representadas en algunas muestras?</p></li>
+<li><p>¿Qué pasos podrían tomarse para limpiar las muestras, si fuera necesario?</p></li>
+</ul>
+</section>
+</section>
+<section id="informe-visual">
+<h2><strong>Informe visual</strong><a class="headerlink" href="#informe-visual" title="Permalink to this heading">#</a></h2>
+<p>Finalmente crearemos un reporte utilizando <em><strong>R markdown</strong></em> un lenguaje centrado en la estructura y presentación del contenido y salidas del código, utilizado para crear documentos bien organizados como puede ser el caso de un reporte de calidad.</p>
+<p>Para ejecutar el código de R incluido en un archivo R markdown este requiere de un “puente” que en este caso es el paquete Knitr. Knitr toma los bloques de código R y los ejecuta siguiendo los parámetros establecidos en la cabecerad el bloque. Luego, estos resultados se integran en el documento final, ya sea como texto, tablas, gráficos o cualquier otra salida generada por el código.</p>
+<p><strong>Sin embargo</strong>, R es un lenguaje interpretado de nivel superior. Esto quiere decir que sus abstracciones y estructuras de datos son más cercanas al lenguaje humano. A pesar de que para fines didácticos esto es una gran ventaja, <strong>no lo es para sus tiempos de ejecución y uso de memoria</strong>, más aún cuando involucramos un nivel más al utilizar R markdown.</p>
+<p>La ventaja de un informe en R markdown es que podemos personalizar más lo que queremos o no mostrar y la forma en que lo hacemos.</p>
+<p>Ahora revisaremos los contenidos del archivo <strong>Reporte_de_calidad_de_lecturas.Rmd</strong> para aprender cómo está estructurado y las opciones que nos brinda.</p>
+<p>Una vez que nos aseguremos que el archivo muestra todos los elementos visuales que queremos en nuestro reporte, es posible renderizarlo a un <em>html</em> desde RStudio, o dese la terminal de Bash con el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>R<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;rmarkdown::render(&#39;informe_calidad.Rmd&#39;)&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TallerBashScripting_05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Scripts interactivos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="de_novo_00.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ensamble <em>de novo</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-dataset"><strong>Sample dataset</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fastqc"><strong>FastQC</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-un-informe-de-calidad-de-lecturas"><strong>Diseño de un informe de calidad de lecturas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informe-default"><strong>Informe</strong> <em><strong>default</strong></em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informe-agregado"><strong>Informe agregado</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informe-visual"><strong>Informe visual</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ATGenomics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

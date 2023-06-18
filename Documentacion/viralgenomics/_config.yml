@@ -1,0 +1,51 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Analisis de genomas virales
+author: ATGenomics
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  
+html_theme_options:
+  light_css_variables:
+    color_content_faint: "#808080"
+    color_content_mid: "#666"
+    color_content_strong: "#404040"
+    color_content_highlight: "#005a8c"
+    color_content_negative: "#b30000"
+    color_content_positive: "#1a3300"
+    color_text_base: "#262626"
+    color_background_system: "#f8f8f8"
+    color_background_page: "#fff"
+    color_background_content: "#fff"
+    color_background_alt: "#f8f8f8"
+    color_background_highlight: "#f0f0f0"
+    color_border: "#ddd"
+    anchor_color: "#005a8c"
+  palette: "light"
+

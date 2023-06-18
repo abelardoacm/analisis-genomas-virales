@@ -1,0 +1,159 @@
+---
+title: "Reporte de calidad personalizado"
+author: "ATGenomics"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{=html}
+<style>
+.header-image {
+  text-align: center;
+}
+</style>
+```
+::: header-image
+<img src="https://www.iica.int/themes/custom/iica2019/logo.svg" alt="Logo" width="300" height="100"/>
+:::
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(fastqcr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+```
+
+## Introducción
+
+El presente reporte pretende ejemplificar la elaboración de un reporte de calidad de secuencias mediante R markdown. Los alumnos del curso podrán modificarlo a su criterio según sus intereses y conveniencias.
+
+```{r input, include=FALSE}
+# Directorio con resultados de fastqc comprimidos
+qc.dir <- "/home/abelardo/Desktop/Atgenomics/ViralGenomics/data/"
+# Agregamos los resultados a un mismo dataframe 
+qc <- qc_aggregate(qc.dir)
+# Reporte MultiQC R  
+qc_report(qc.dir, result.file = "/home/abelardo/Desktop/Atgenomics/ViralGenomics/tmp/R_MultiQC", interpret = TRUE)
+```
+
+```{r traduccion, echo=FALSE, results=FALSE}
+# Para un reporte tecnico podemos sustituir los terminos a español
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Headers
+colnames(qc) <- c("Muestra", "Módulo", "Estatus", "Total de secuencias", "Rango de longitud de lecturas", "Porcentage GC", "Porcentage de duplicaciones")
+# Términos traducibles
+terminos_eng <- unique(c(qc$Módulo,qc$Estatus))
+terminos_esp <- c("Estadísticas Básicas", "Calidad de la secuencia por base", "Calidad de la secuencia por celda de secuenciación",
+                      "Puntuaciones de calidad por secuencia", "Contenido de la secuencia por base", 
+                      "Contenido de GC por secuencia", "Contenido de N por base", "Distribución de la Longitud de la Secuencia",
+                      "Niveles de Duplicación de la Secuencia", "Secuencias Sobre-representadas", "Contenido del Adaptador", 
+                      "APROBADO", "FALLÓ", "ADVERTENCIA")
+# Realizar la sustitución al español
+qc$Módulo[match(qc$Módulo, terminos_eng, nomatch = 0) > 0] <- terminos_esp[match(qc$Módulo, terminos_eng)]
+qc$Estatus[match(qc$Estatus, terminos_eng, nomatch = 0) > 0] <- terminos_esp[match(qc$Estatus, terminos_eng)]
+# Eliminamos prefijos
+qc$Muestra <- gsub("sample","",qc$Muestra)
+```
+
+## Resultados
+
+A continuación un bosquejo de la visualización posible mediante R markdown.
+
+### Tablas de identifiación de casos
+
+Algo que es muy útil en estos reportes es la capacidad de mostrar u ocultar código. A continuación se mostrarán tablas realizadas con la siguiente estructura de código.
+
+```         
+# dataframe filtrado para pruebas aprobadas
+df <- qc %>% 
+  select(Muestra, Módulo, Estatus) %>%    
+  filter(Estatus %in% c("APROBADO")) %>%
+  arrange(Muestra)
+
+# parametros graficos para impresión de tabla
+kable(df, "html") %>%
+  kable_styling(
+    font_size = 15,
+    full_width = F,
+    position = "left",
+    bootstrap_options = c("striped", "hover")
+  ) %>%
+  row_spec(0, bold = T, color = "white", background = "darkgreen")
+```
+... para mostrar una tabla general con las pruebas globales sobre la calidad de las lecturas
+
+```{r general, echo=FALSE, results=TRUE}
+# General
+kable(qc, "html") %>%
+  kable_styling(
+    font_size = 15,
+    full_width = F,
+    position = "left",
+    bootstrap_options = c("striped", "hover")
+  ) %>%
+  row_spec(0, bold = T, color = "white", background = "gray")
+```
+... O un desglose segun estas pruebas fueron aprobadas
+```{r aprobados, echo=FALSE, results=TRUE}
+# Aprobados
+aprobado.df <- qc %>%
+  select(Muestra, Módulo, Estatus) %>%    
+  filter(Estatus %in% c("APROBADO")) %>%
+  arrange(Muestra)
+
+kable(aprobado.df, "html") %>%
+  kable_styling(
+    font_size = 15,
+    full_width = F,
+    position = "left",
+    bootstrap_options = c("striped", "hover")
+  ) %>%
+  row_spec(0, bold = T, color = "white", background = "darkgreen")
+
+```
+... se obtuvo una advertencia
+```{r advertencia, echo=FALSE, results=TRUE}
+advertencia.df <- qc %>%
+  select(Muestra, Módulo, Estatus) %>%    
+  filter(Estatus %in% c("ADVERTENCIA")) %>%
+  arrange(Muestra)
+
+kable(advertencia.df, "html") %>%
+  kable_styling(
+    font_size = 15,
+    full_width = F,
+    position = "left",
+    bootstrap_options = c("striped", "hover")
+  ) %>%
+  row_spec(0, bold = T, color = "white", background = "gold")
+```
+... o se falló
+```{r fallos, echo=FALSE, results=TRUE}
+fallo.df <- qc %>%
+  select(Muestra, Módulo, Estatus) %>%    
+  filter(Estatus %in% c("FALLÓ")) %>%
+  arrange(Muestra)
+
+kable(fallo.df, "html") %>%
+  kable_styling(
+    font_size = 15,
+    full_width = F,
+    position = "left",
+    bootstrap_options = c("striped", "hover")
+  ) %>%
+  row_spec(0, bold = T, color = "white", background = "tomato")
+```
+### Gráficas
+
+Al igual que incluimos tablas, es posible incorporar gráficas en nuestro reporte. Basta con agregar un bloque de código que la genere.
+
+```{r input2, include=FALSE}
+qc.file <- "/home/abelardo/Desktop/Atgenomics/ViralGenomics/data/sample1_R1_fastqc.zip"
+qc_ind <- qc_read(qc.file)
+```
+
+```{r graph}
+qc_plot(qc_ind, "Per sequence GC content")
+```

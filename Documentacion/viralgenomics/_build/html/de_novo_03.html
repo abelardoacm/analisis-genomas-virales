@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>SPAdes &#8212; Analisis de genomas virales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_03';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Diseño de informe de calidad de ensambles" href="de_novo_04.html" />
+    <link rel="prev" title="SKESA" href="de_novo_02.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenido al curso de análisis de genomas virales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="TallerBashScripting_00.html">Taller Bash Scripting</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_01.html">Introducción al Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_02.html">Conceptos clave en Bash Scripting:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_03.html">Buenas prácticas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_04.html">Debugging y solución de problemas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_05.html">Scripts interactivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_06.html">Control de calidad de lecturas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fde_novo_03.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/de_novo_03.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SPAdes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="spades">
+<h1><strong>SPAdes</strong><a class="headerlink" href="#spades" title="Permalink to this heading">#</a></h1>
+<section id="introduccion-a-spades">
+<h2><strong>Introducción a SPAdes</strong><a class="headerlink" href="#introduccion-a-spades" title="Permalink to this heading">#</a></h2>
+<p>SPAdes (St. Petersburg genome assembler) es un programa de software que se utiliza para el ensamble de novo de genomas bacterianos, aunque también ha demostrado ser efectivo en el ensamble de genomas virales con alta variabilidad. Trabaja tanto con lecturas de secuenciación de longitud corta (como las generadas por Illumina) como con lecturas de longitud media a larga (como las generadas por PacBio o Oxford Nanopore).</p>
+<p>SPAdes se basa en algoritmos de ensamble de novo que utilizan una combinación de técnicas, incluyendo <em><strong>De Bruijn Graphs</strong></em>  y técnicas de mapeo de lecturas.</p>
+<p>SPAdes tiene una amplia gama de opciones y parámetros que se pueden ajustar para optimizar los resultados del ensamble. Por ejemplo, SPAdes puede realizar ensamblajes híbridos utilizando tanto lecturas de secuenciación de longitud corta como de longitud larga, lo que permite aprovechar las ventajas de ambos tipos de datos.</p>
+</section>
+<section id="etapas-de-spades">
+<h2><strong>Etapas de SPAdes</strong><a class="headerlink" href="#etapas-de-spades" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Creación de gráficos de De Bruijn:</strong> Cada vértice en el gráfico representa una secuencia (un k-mer) y cada arista representa una superposición entre dos secuencias. Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.</p></li>
+<li><p><strong>Simplificación del gráfico:</strong> SPAdes simplifica el gráfico de De Bruijn para reducir la complejidad del problema de ensamble.</p>
+<ol class="arabic simple">
+<li><p>Eliminación de puntas: Las puntas son pequeñas ramas en el grafo que generalmente se deben a errores de secuenciación. Al eliminar estas puntas, SPAdes puede reducir el ruido en el grafo.</p></li>
+<li><p>Fusión de bulbos: Los bulbos son estructuras en el grafo que se forman debido a variaciones menores en la secuencia. Al fusionar estos bulbos en una sola ruta, SPAdes puede reducir la complejidad del grafo.</p></li>
+<li><p>Compresión de caminos: Cuando hay una serie de nodos en el grafo que todos tienen un solo predecesor y un solo sucesor, pueden comprimirse en un solo nodo. Esto puede reducir significativamente el tamaño del grafo.</p></li>
+<li><p>Resolución de repeticiones: Las repeticiones son secuencias que aparecen más de una vez en el genoma y pueden causar problemas en el ensamblaje ya que crean múltiples rutas posibles a través del grafo. SPAdes utiliza varias técnicas para tratar de resolver estas repeticiones y elegir la ruta más probable.</p></li>
+</ol>
+</li>
+<li><p><strong>Ensamblaje del genoma:</strong> Finalmente, SPAdes utiliza el gráfico de De Bruijn simplificado para generar los contigs del ensamble. Este proceso implica la identificación de caminos a través del gráfico que representan secuencias genómicas probables.</p></li>
+</ul>
+<p>Es importante destacar que SPAdes utiliza un enfoque multi-k-mer en el que se crean y procesan varios gráficos de De Bruijn con diferentes valores de k. Esto permite a SPAdes manejar más efectivamente las variaciones en la cobertura de secuenciación y las regiones repetitivas en el genoma.</p>
+</section>
+<section id="practica-uso-de-spades-para-el-ensamblaje-de-novo">
+<h2><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong><a class="headerlink" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo" title="Permalink to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DETOUR: Como muchas herramientas bioinformáticas, para instalarlas en nuestras computadoras personales podemos recurrir a conda Si necesitas instalar SPAdes en tu computadora, podrás hacerlo con el siguiente comando: `$ conda install -c bioconda spades`
+</pre></div>
+</div>
+<p>Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que tenemos muestras pareadas, simplemente tenemos que usar ambos archivos como argumento e indicar el directorio de salida. Pero antes…</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.
+</pre></div>
+</div>
+<p>Tras definir y discutir algunos de los parámetros, ejecutaremos el siguiente comando para la muestra 1:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>../spades_test/
+</pre></div>
+</div>
+</section>
+<section id="interpretacion-de-los-resultados-de-spades">
+<h2>** Interpretación de los resultados de SPAdes**<a class="headerlink" href="#interpretacion-de-los-resultados-de-spades" title="Permalink to this heading">#</a></h2>
+<p>Después de ejecutar SPAdes, se generará un directorio de salida (que especificaste con la opción <code class="docutils literal notranslate"><span class="pre">-o</span></code> en el comando de SPAdes). Dentro de este directorio, encontrarás una serie de archivos y subdirectorios que contienen los resultados del ensamblaje de SPAdes.</p>
+<section id="contigs-fasta-y-scaffolds-fasta">
+<h3>1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code><a class="headerlink" href="#contigs-fasta-y-scaffolds-fasta" title="Permalink to this heading">#</a></h3>
+<p>Estos dos archivos contienen los contigüidades (contigs) y ensambles finales (scaffolds) resultantes del ensamblaje.</p>
+<ul class="simple">
+<li><p>Los <code class="docutils literal notranslate"><span class="pre">contigs</span></code> son secuencias que SPAdes ha ensamblado a partir de las lecturas. Son los bloques de construcción básicos del genoma.</p></li>
+<li><p>Los <code class="docutils literal notranslate"><span class="pre">scaffolds</span></code> son conjuntos de contigs que se han unido con la ayuda de las lecturas pareadas. Los scaffolds pueden contener regiones de “N” que representan gaps o regiones desconocidas entre los contigs.</p></li>
+</ul>
+</section>
+<section id="spades-log">
+<h3>2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code><a class="headerlink" href="#spades-log" title="Permalink to this heading">#</a></h3>
+<p>Este archivo contiene el registro de la ejecución de SPAdes. Proporciona información detallada sobre cada etapa del proceso de ensamblaje.</p>
+</section>
+<section id="carpeta-kxx">
+<h3>3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code><a class="headerlink" href="#carpeta-kxx" title="Permalink to this heading">#</a></h3>
+<p>Esta carpeta contiene los resultados intermedios de las distintas etapas del ensamblaje. SPAdes realiza múltiples iteraciones de ensamblaje utilizando diferentes longitudes de k-mers. Cada una de estas iteraciones tiene su propia carpeta, llamada <code class="docutils literal notranslate"><span class="pre">KXX</span></code>, donde <code class="docutils literal notranslate"><span class="pre">XX</span></code> es la longitud del k-mer utilizado.</p>
+</section>
+<section id="params-txt">
+<h3>4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code><a class="headerlink" href="#params-txt" title="Permalink to this heading">#</a></h3>
+<p>Este archivo muestra los parámetros y opciones que se utilizaron para ejecutar SPAdes.</p>
+<hr class="docutils" />
+<p>Para interpretar los resultados de SPAdes, podríamos comenzar por revisar los archivos <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code>,contar el número de contigs/scaffolds, y también puedes calcular su longitud total y la longitud del contig o scaffold más largo.</p>
+<p>Un análisis más detallado requerirá herramientas bioinformáticas adicionales. Por ejemplo, podrías utilizar BLAST para comparar tus contigs o scaffolds con secuencias de referencia conocidas, o podrías utilizar una herramienta de visualización de genomas como Bandage para examinar visualmente el grafo de ensamblaje.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="de_novo_02.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>SKESA</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="de_novo_04.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Diseño de informe de calidad de ensambles</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ATGenomics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

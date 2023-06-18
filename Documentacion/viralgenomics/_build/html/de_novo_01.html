@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Introducción al ensamble de novo &#8212; Analisis de genomas virales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_01';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SKESA" href="de_novo_02.html" />
+    <link rel="prev" title="Ensamble de novo" href="de_novo_00.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenido al curso de análisis de genomas virales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="TallerBashScripting_00.html">Taller Bash Scripting</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_01.html">Introducción al Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_02.html">Conceptos clave en Bash Scripting:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_03.html">Buenas prácticas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_04.html">Debugging y solución de problemas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_05.html">Scripts interactivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_06.html">Control de calidad de lecturas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introducción al ensamble de novo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fde_novo_01.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/de_novo_01.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción al ensamble de novo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-y-relevancia-del-ensamble-de-novo"><strong>Definición y relevancia del ensamble de novo</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breve-historia-de-los-algoritmos-de-ensamble"><strong>Breve historia de los algoritmos de ensamble</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primeros-algoritmos"><strong>Primeros algoritmos</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aparicion-de-la-secuenciacion-de-nueva-generacion-ngs"><strong>Aparición de la secuenciación de nueva generación (NGS)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#secuenciacion-de-tercera-generacion"><strong>Secuenciación de tercera generación</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-desafios-del-ensamble-de-novo"><strong>Principales desafíos del ensamble de novo</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="introduccion-al-ensamble-de-novo">
+<h1>Introducción al ensamble de novo<a class="headerlink" href="#introduccion-al-ensamble-de-novo" title="Permalink to this heading">#</a></h1>
+<section id="definicion-y-relevancia-del-ensamble-de-novo">
+<h2><strong>Definición y relevancia del ensamble de novo</strong><a class="headerlink" href="#definicion-y-relevancia-del-ensamble-de-novo" title="Permalink to this heading">#</a></h2>
+<p>El ensamble de novo se refiere al proceso de ensamblar fragmentos de DNA/RNA provenientes de las lecturas de la secuenciación, en una secuencia completa o parcialmente completa SIN la ayuda de una secuencia de referencia.</p>
+<p>En otras palabras, el ensamble de novo es como reconstruir el las notas de un periódico que explotó.</p>
+<p>Este proceso nos permite descubrir nuevos genomas, identificar variantes estructurales y analizar linajes poco conocidos para los cuales no hay secuencias de referencia disponibles. El ensamble de novo es particularmente útil cuando se secuencian nuevos organismos o se estudian comunidades complejas, donde se desconoce la mayoría de las secuencias genómicas, como es el caso frecuentemente para los virus.</p>
+<p>En el contexto de la genómica viral, el ensamble de novo es de crucial importancia por varias razones:</p>
+<ul class="simple">
+<li><p><strong>Diversidad viral</strong>: Las secuencias de referencia pueden no ser útiles para linajes altamente variables (como la mayoría)… incluso pueden llegar a jugarnos en contra.</p></li>
+<li><p><strong>Descubrimiento de nuevos virus</strong>: Es posible descubrir nuevos virus o variantes.</p></li>
+<li><p><strong>Estudio de la recombinación/segmentación</strong>: Como lo exploramos anteriormente, los virus de algunos linajes suelen recombinarse o segmentarse, incluso como parte de algunas estrategias para la infección. Estos fenómenos muy particulares de los virus y elementos genéticos móviles retan la utilidad de las secuencias de referencia, no solo por la identidad a nivel de los nucleótidos, sino también hablando de la sintenia de los genes.</p></li>
+</ul>
+</section>
+<section id="breve-historia-de-los-algoritmos-de-ensamble">
+<h2><strong>Breve historia de los algoritmos de ensamble</strong><a class="headerlink" href="#breve-historia-de-los-algoritmos-de-ensamble" title="Permalink to this heading">#</a></h2>
+<p>El ensamble de novo ha sido una parte fundamental de la bioinformática y la genómica durante varias décadas, y los algoritmos y técnicas han cambiado y evolucionado significativamente a lo largo de los años.</p>
+<section id="primeros-algoritmos">
+<h3><strong>Primeros algoritmos</strong><a class="headerlink" href="#primeros-algoritmos" title="Permalink to this heading">#</a></h3>
+<p>Los primeros algoritmos de ensamble surgieron en la década de 1980 con los primeros esfuerzos para secuenciar genomas completos. Los métodos de secuenciación de la época producían lecturas de secuencias relativamente largas, pero en cantidades limitadas.</p>
+<p>Algoritmos como Phrap o TIGR assembler, se basaban en la idea de solapar las lecturas y utilizar estos solapamientos para unir las lecturas en contiguos más largos.</p>
+</section>
+<section id="aparicion-de-la-secuenciacion-de-nueva-generacion-ngs">
+<h3><strong>Aparición de la secuenciación de nueva generación (NGS)</strong><a class="headerlink" href="#aparicion-de-la-secuenciacion-de-nueva-generacion-ngs" title="Permalink to this heading">#</a></h3>
+<p>Con la introducción de la secuenciación de nueva generación (NGS) a mediados de la década de 2000, el panorama cambió dramáticamente. Los métodos NGS podían generar millones de lecturas cortas (de unos pocos cientos de pares de bases) en un solo experimento. Este aumento en el volumen de datos creó nuevos desafíos para los algoritmos de ensamble, ya que los métodos existentes no eran adecuados para manejar la gran cantidad de datos producidos por las tecnologías NGS.</p>
+<p>En respuesta a estos desafíos, se desarrollaron nuevos algoritmos que utilizaban los <em><strong>grafos de De Bruijn</strong></em> para ensamblar genomas a partir de lecturas cortas. Los gráficos de De Bruijn representan las relaciones entre las secuencias de lectura en términos de k-mers (secuencias de longitud k), lo que permite un enfoque más eficiente para el ensamble de lecturas cortas.</p>
+<p>Los primeros algoritmos de gráficos de De Bruijn, como Velvet, ABySS y SOAPdenovo, permitieron el ensamble de genomas mucho más grandes y complejos.</p>
+</section>
+<section id="secuenciacion-de-tercera-generacion">
+<h3><strong>Secuenciación de tercera generación</strong><a class="headerlink" href="#secuenciacion-de-tercera-generacion" title="Permalink to this heading">#</a></h3>
+<p>Recientemente, la aparición de la secuenciación de tercera generación, que produce lecturas de secuencias mucho más largas (de decenas de miles a cientos de miles de pares de bases), ha dado lugar a toda una nueva generación de algoritmos de ensamble. Estos algoritmos están diseñados para lidiar con enormes volúmenes de información.</p>
+</section>
+</section>
+<section id="principales-desafios-del-ensamble-de-novo">
+<h2><strong>Principales desafíos del ensamble de novo</strong><a class="headerlink" href="#principales-desafios-del-ensamble-de-novo" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Complejidad y tamaño del genoma:</strong> En general, cuanto más grande y complejo es el genoma, más difícil es ensamblarlo de novo. Los genomas con una gran cantidad de repeticiones largas, duplicaciones y regiones de baja complejidad son particularmente desafiantes.</p>
+<ul>
+<li><p>Aunque los genomas virales son mucho más pequeños que los genomas de los eucariotas, la alta diversidad y tasa de mutación de los virus puede aumentar la complejidad del ensamble de novo.</p></li>
+</ul>
+</li>
+<li><p><strong>Calidad y cantidad de los datos de secuenciación:</strong> La calidad y cantidad de los datos de secuenciación pueden tener un impacto significativo en la precisión y la completitud del ensamble de novo. La secuenciación de baja calidad o la cobertura de secuenciación insuficiente puede dar lugar a ensambles fragmentados o imprecisos. Asimismo, las secuencias de adaptadores y los artefactos de PCR pueden introducir errores en el ensamble si no se eliminan antes del ensamble de novo.</p>
+<ul>
+<li><p>En el caso de los virus esto tiene un enorme impacto en el diseño experimental para la extracción del material genético y la secuenciación, ya que este proceso siempre debe considerar su condicion endoparásitica y sus particularidades genómicas.</p></li>
+</ul>
+</li>
+<li><p><strong>Errores de ensamble y validación de los resultados:</strong> Debido a las incertidumbres inherentes al proceso de ensamble, es posible que se introduzcan errores en los ensambles. Estos pueden incluir la incorporación de lecturas erróneas. Por lo tanto, es importante validar y corregir los ensambles utilizando diversas técnicas, como la resecuenciación, el mapeo de lecturas y la comparación con genomas de linajes cercanos.</p></li>
+<li><p><strong>Optimización del algoritmo de ensamble:</strong> Existen muchos algoritmos de ensamble de novo disponibles, cada uno con sus propias ventajas y desventajas. La elección del algoritmo de ensamble y la optimización de sus parámetros puede tener un impacto significativo en la calidad del ensamble. Esta elección puede ser especialmente desafiante para los genomas virales.</p>
+<ul>
+<li><p>Reconstrucción del quimerismo y la variabilidad intra-host. En el caso de la secuenciación viral la optimización del algoritmo deberá hacerse según el impacto que sobre sus supuestos puedan tener la contaminación externa, variabilidad y el quimerismo.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="de_novo_00.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ensamble <em>de novo</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="de_novo_02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>SKESA</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-y-relevancia-del-ensamble-de-novo"><strong>Definición y relevancia del ensamble de novo</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breve-historia-de-los-algoritmos-de-ensamble"><strong>Breve historia de los algoritmos de ensamble</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primeros-algoritmos"><strong>Primeros algoritmos</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aparicion-de-la-secuenciacion-de-nueva-generacion-ngs"><strong>Aparición de la secuenciación de nueva generación (NGS)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#secuenciacion-de-tercera-generacion"><strong>Secuenciación de tercera generación</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-desafios-del-ensamble-de-novo"><strong>Principales desafíos del ensamble de novo</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ATGenomics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

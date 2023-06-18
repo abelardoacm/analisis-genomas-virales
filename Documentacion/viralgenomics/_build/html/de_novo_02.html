@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>SKESA &#8212; Analisis de genomas virales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_02';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SPAdes" href="de_novo_03.html" />
+    <link rel="prev" title="Introducción al ensamble de novo" href="de_novo_01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenido al curso de análisis de genomas virales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="TallerBashScripting_00.html">Taller Bash Scripting</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_01.html">Introducción al Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_02.html">Conceptos clave en Bash Scripting:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_03.html">Buenas prácticas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_04.html">Debugging y solución de problemas en Bash Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_05.html">Scripts interactivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_06.html">Control de calidad de lecturas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SKESA</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fde_novo_02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/de_novo_02.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SKESA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-particularidades-de-skesa"><strong>Otras particularidades de SKESA</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-skesa-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SKESA para el ensamblaje de novo</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados"><strong>Interpretación de los resultados</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="skesa">
+<h1><strong>SKESA</strong><a class="headerlink" href="#skesa" title="Permalink to this heading">#</a></h1>
+<p>SKESA es una herramienta para el ensamblaje de genomas microbianos que utiliza <em><strong>De Bruijn Graphs</strong></em> a través de métodos heurísticos conservadores, es decir, conjuntos de parámetros o presuntos empíricos que han demostrado su efectividad para el ensamblaje de genomas. (pero que pueden no ser óptimas en todos los casos).</p>
+<p>SKESA está diseñado para crear interrupciones en las regiones repetitivas del genoma. Una forma de entenderlo es pensar que, cuando SKESA “crea interrupciones” en estas regiones repetitivas, está optando por romper los contigs en estos puntos en lugar de adivinar cómo se deben ensamblar las repeticiones.</p>
+<p>Esto nos permite acoplarlo a un análisis efectuado por un GFA (Graphical Fragment Assembly), un análisis posterior a SKESA que nos permite tomar los contigs y conectarlos para poder darnos una idea de la estructura del genoma.</p>
+<p>Y finalmente, pero no menos importante, SKESA es un algoritmo de ensamblaje muy eficiente que puede ensamblar genomas rápidamente, incluso en computadoras con recursos limitados.</p>
+<section id="otras-particularidades-de-skesa">
+<h2><strong>Otras particularidades de SKESA</strong><a class="headerlink" href="#otras-particularidades-de-skesa" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Extracción de k-mers conservadores:</strong> SKESA utiliza una estrategia conservadora de extracción de k-mers (identificando aquellos k-mers que son soportados por un número suficiente de lecturas), para minimizar la inclusión de k-mers que pueden ser el resultado de errores de lectura. Esto ayuda a reducir el ruido en el Grafo de Bruijn</p></li>
+<li><p><em><strong>Branch and bound</strong></em>: Es una estrategia que implica dividir un gran problema en sub problemas. En el caso del ensamblaje de novo, el problema más grande podría ser ensamblar todo el genoma, y los subproblemas podrían ser ensamblar regiones individuales del genoma. SKESA crea estos subproblemas al dividir el grafo de k-mers en puntos donde el grafo se bifurca, es decir, en puntos donde una secuencia de k-mers podría extenderse de varias maneras diferentes.  En el caso del ensamblaje de novo, la “calidad” de un ensamblaje podría ser medida en términos de su longitud (queremos ensamblajes más largos) y la exactitud de la secuencia (queremos secuencias que sean fieles a la secuencia original). Si una solución parcial (por ejemplo, un ensamblaje de una sola región del genoma) ya es de menor calidad que la mejor solución completa que se ha encontrado hasta ahora, entonces no tiene sentido continuar extendiendo esa solución parcial, y se puede descartar.</p></li>
+</ul>
+</section>
+<section id="practica-uso-de-skesa-para-el-ensamblaje-de-novo">
+<h2><strong>Práctica: Uso de SKESA para el ensamblaje de novo</strong><a class="headerlink" href="#practica-uso-de-skesa-para-el-ensamblaje-de-novo" title="Permalink to this heading">#</a></h2>
+<p>Para esta demostración, vamos a recurrir a los archivos con los que hemos trabajado (FASTQ), que son nuestras lecturas de secuenciación de Illumina. Recuerda, estos son archivos paired-end, lo que significa que cada par de lecturas proviene de ambos extremos de un fragmento de material genético.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DETOUR: Como muchas herramientas bioinformáticas, para instalarlas en nuestras computadoras personales podemos recurrir a conda Si necesitas instalar SKESA en tu computadora, podrás hacerlo con el siguiente comando: `$ conda install -c bioconda skesa`
+</pre></div>
+</div>
+<p>Una vez que tenemos instalado SKESA en nuestro sistema, este puede ejecutarse de manera sencilla (para una muestra) utilizando el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>skesa<span class="w"> </span>--fastq<span class="w"> </span>sample1_R1.fastq.gz,sample1_R2.fastq.gz<span class="w"> </span>--use_paired_ends<span class="w"> </span>--contigs_out<span class="w"> </span>../skesa_test/sample1_contigs.fasta
+</pre></div>
+</div>
+<p>Mientras el análisis termina de ejecutarse, veamos qué significan algunos mensajes:</p>
+<ul class="simple">
+<li><p><em><strong>Seed kmers:</strong></em> Este es el número de k-mers semilla utilizados para comenzar el proceso de ensamblaje. Un valor de 0 significa que no se especificaron k-mers semilla en particular y que SKESA generó sus propios k-mers semilla a partir de las lecturas.</p></li>
+<li><p><em><strong>Cleaned reads:</strong></em> Este es el número de lecturas después de la limpieza, que implica eliminar lecturas de baja calidad y adaptadores.</p></li>
+<li><p><em><strong>Reads for connection:</strong></em> Este es el número de lecturas que se utilizarán para conectar contigs durante el ensamblaje.</p></li>
+<li><p><em><strong>Internal reads:</strong></em> Este es el número de lecturas que se utilizan para la construcción interna del gráfico de ensamblaje.</p></li>
+<li><p><em><strong>Kmer len:</strong></em> Este es el tamaño del k-mer que SKESA está utilizando para cada paso del ensamblaje.</p></li>
+<li><p><em><strong>Raw kmers:</strong></em> Este es el número de k-mers crudos extraídos de las lecturas.</p></li>
+<li><p><em><strong>Distinct kmers:</strong></em> Este es el número de k-mers distintos después de eliminar los k-mers duplicados.</p></li>
+<li><p><em><strong>Graph size:</strong></em> Este es el tamaño del gráfico de ensamblaje después de este paso. En tu caso, el tamaño del gráfico es de 3190404.</p></li>
+<li><p><em><strong>Contigs in:</strong></em> Este es el número de contigs que se han ensamblado hasta ahora.</p></li>
+<li><p><em><strong>Valley:</strong></em> Este valor se refiere a la profundidad del valle más profundo en el histograma de cobertura de k-mer. Un valor de 0 significa que no se encontró ningún valle profundo, lo que puede indicar que no hay mucha redundancia en las lecturas.</p></li>
+<li><p><em><strong>Kmers in multiple/single contigs:</strong></em> Este valor muestra el número de k-mers que aparecen en múltiples contigs y en un solo contig, respectivamente.</p></li>
+<li><p><em><strong>Genome:</strong></em> Este es el tamaño del genoma ensamblado hasta ahora.</p></li>
+<li><p><em><strong>N50:</strong></em> El valor N50 se calcula ordenando todos los contigs o secuencias de un ensamblaje de mayor a menor y sumando las longitudes de los contigs hasta que se llegue a la mitad del tamaño total del genoma. Un N50 más alto generalmente se interpreta como un ensamblaje de mayor calidad. El valor de N50 es la longitud del contig más corto en ese punto.. En tu caso, el valor N50 es de 3673.</p></li>
+<li><p><em><strong>L50:</strong></em> El valor L50 es el número mínimo de contigs cuyas longitudes suman al menos la mitad del tamaño total del genoma. En otras palabras, si ordenas los contigs de mayor a menor, el L50 es cuántos contigs tienes que sumar para llegar al 50% del tamaño total del genoma. Un valor L50 más bajo generalmente indica un mejor ensamblaje, ya que significa que menos contigs componen la mitad del tamaño del genoma. En tu caso, el valor L50 es de 5.</p></li>
+</ul>
+</section>
+<section id="interpretacion-de-los-resultados">
+<h2><strong>Interpretación de los resultados</strong><a class="headerlink" href="#interpretacion-de-los-resultados" title="Permalink to this heading">#</a></h2>
+<p>Los resultados de SKESA se generan en formato FASTA, que es uno de los formatos más comunes para almacenar información de secuencias de nucleótidos. Cada registro en un archivo FASTA se compone de una línea de descripción, seguida por líneas de secuencias de bases. La línea de descripción se distingue de la secuencia de bases por un carácter de mayor que (“&gt;”) al inicio.</p>
+<p>Un ejemplo de un archivo FASTA producido por SKESA podría verse así:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">contig00001</span> <span class="n">length</span><span class="o">=</span><span class="mi">57291</span> <span class="n">numreads</span><span class="o">=</span><span class="mi">54</span>
+<span class="n">ACCGGTTAA</span><span class="o">...</span>
+<span class="o">&gt;</span><span class="n">contig00002</span> <span class="n">length</span><span class="o">=</span><span class="mi">45121</span> <span class="n">numreads</span><span class="o">=</span><span class="mi">23</span>
+<span class="n">GTTAACCG</span><span class="o">...</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Después del nombre del contig, verás atributos adicionales. length es la longitud del contig, que representa el número de bases en la secuencia del contig. numreads es el número de lecturas que se han ensamblado para formar este contig.</p>
+<p>Al interpretar estos resultados, es importante recordar que un número mayor de lecturas que contribuyen a un contig o una longitud de contig más larga no necesariamente implican que ese contig es más “importante” o “preciso”. Estos son simplemente artefactos del proceso de ensamblaje y pueden estar sujetos a variaciones debido a diferencias en la cobertura de secuenciación, errores de secuenciación y variabilidad biológica.</p>
+<p>En términos más generales, los resultados del ensamblaje de SKESA, al igual que cualquier ensamblaje de novo, deben ser interpretados en el contexto de la pregunta de investigación, y generalmente requieren pasos de análisis adicionales, como la anotación del genoma, para proporcionar información más detallada y biológicamente relevante.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="de_novo_01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción al ensamble de novo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="de_novo_03.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>SPAdes</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-particularidades-de-skesa"><strong>Otras particularidades de SKESA</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-skesa-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SKESA para el ensamblaje de novo</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados"><strong>Interpretación de los resultados</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ATGenomics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
