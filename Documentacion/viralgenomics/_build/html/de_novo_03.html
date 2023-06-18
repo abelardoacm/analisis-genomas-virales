@@ -227,7 +227,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -244,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fde_novo_03.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_03.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -417,8 +417,11 @@ document.write(`
 </pre></div>
 </div>
 <p>Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que tenemos muestras pareadas, simplemente tenemos que usar ambos archivos como argumento e indicar el directorio de salida. Pero antes…</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.
 </pre></div>
+</div>
 </div>
 <p>Tras definir y discutir algunos de los parámetros, ejecutaremos el siguiente comando para la muestra 1:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>../spades_test/

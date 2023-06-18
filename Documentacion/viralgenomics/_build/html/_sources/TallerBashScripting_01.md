@@ -20,19 +20,19 @@ El uso de **scripts de Bash** para el **análisis de datos de secuenciación** o
 
 Ahora, veamos un script de Bash más sencillo y popular. Este script imprimirá el mensaje "¡Hola, mundo!" cuando se ejecute.
 
-Para crear un script de Bash, primero necesitas abrir un archivo de texto en cualquier editor de texto. Vamos a llamar a este archivo `hola_mundo.sh`.
+Para crear un script de Bash, primero necesitas abrir un archivo de texto en cualquier editor de texto. Vamos a llamar a este archivo `1_1_HELLO_WORLD.sh`.
 
 #### ***shebang***
 En la primera línea del script, debes incluir una "shebang" (`#!`). Esta es una secuencia de caracteres que indica al sistema que el resto del archivo debe interpretarse como un script de Bash. La *shebang* de Bash es es **`#!/bin/bash`**, que como puedrás notar **es una ruta en de nuestro sistema**.
 
-A continuación, puedes añadir los comandos que quieras que se ejecuten. Para nuestro script `hola_mundo.sh`, sólo queremos que imprima "¡Hola, mundo!", utilizando el comando **`echo`**:
+A continuación, puedes añadir los comandos que quieras que se ejecuten. Para nuestro script `1_1_HELLO_WORLD.sh`, sólo queremos que imprima "¡Hola, mundo!", utilizando el comando **`echo`**:
 
 ```bash
 #!/bin/bash
 echo "¡Hola, mundo!"
 ```
 
-Para ejecutar este script, se deben otorgar permisos de ejecución al archivo utilizando el comando ***`chmod`***. A continuación, puedes ejecutarlo con `./hola_mundo.sh` desde la terminal.
+Para ejecutar este script, se deben otorgar permisos de ejecución al archivo utilizando el comando ***`chmod`***. A continuación, puedes ejecutarlo con `./1_1_HELLO_WORLD.sh` desde la terminal.
 
 Este es un ejemplo simple, pero a medida que te familiarices con Bash, podrás crear scripts más complejos y útiles.
 

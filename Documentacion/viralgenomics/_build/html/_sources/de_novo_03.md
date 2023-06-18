@@ -32,7 +32,9 @@ Es importante destacar que SPAdes utiliza un enfoque multi-k-mer en el que se cr
 
 Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que tenemos muestras pareadas, simplemente tenemos que usar ambos archivos como argumento e indicar el directorio de salida. Pero antes...
 
+```{note}
     PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.
+```
 
 Tras definir y discutir algunos de los parámetros, ejecutaremos el siguiente comando para la muestra 1:
 
