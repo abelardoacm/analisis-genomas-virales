@@ -1,4 +1,5 @@
 ## Introducción al Bash Scripting
+
 ### **¿Qué es el Bash scripting?**
 - El *shell* es un programa de computadora que proporciona una interfaz de usuario para interactuar con el sistema operativo. ***Bash*** es el *shell*, o lenguaje de comandos más utilizado, ya que es el intérprete de comandos predeterminado en la mayoría de las distribuciones de *Linux*. 
 - Un ***Bash script***, o script de *Bash*, es un archivo de texto que contiene una serie de comandos escritos Bash, utilizados para automatizar tareas en sistemas operativos basados en ***Unix***, como *Linux* y *macOS*.

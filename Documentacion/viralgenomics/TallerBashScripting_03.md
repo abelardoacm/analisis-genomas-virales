@@ -48,14 +48,14 @@ DIR_FASTQ="$1"
 # Función para procesar un archivo FASTQ
 procesar_fastq() {
     local FASTQ="$1"
-    echo "Procesando archivo: $FASTQ"
+    echo "Procesando archivo: ${FASTQ}"
     # Aquí puedes añadir los comandos para procesar el archivo FASTQ
 }
 
 # Bucle para procesar cada archivo FASTQ
-for FASTQ in "$DIR_FASTQ"/*.fastq.gz
+for FASTQ in "${DIR_FASTQ}"/*.fastq.gz
 do
-    procesar_fastq "$FASTQ"
+    procesar_fastq "${FASTQ}"
 done
 ```
 
@@ -71,10 +71,9 @@ aunque sin seguir las pautas también podría verse así...
 ```bash
 #!/bin/bash
 a=$1
-b=($(ls $a/*.fastq.gz))
+b=($(ls ${a}/*.fastq.gz))
 for c in ${b[@]}
 do
-echo $c
+echo ${c}
 done
 ```
-
