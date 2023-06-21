@@ -4,6 +4,41 @@
 
 Las variables son espacios de memoria que reservamos para almacenar valores. Puedes pensar en una variable como un contenedor o una etiqueta con un nombre. Estos nombres sin embargo tienen algunas reglas. En Bash son sensibles a las mayúsculas y minúsculas, y no pueden comenzar con un dígito. La sintáxis de asignación es similar a otros lenguajes, ya que usamos el operador `=`. Por ejemplo, `x=10` asigna el valor 10 a la variable `x`. Para referirse al valor de una variable, se utiliza el símbolo `$`. Por ejemplo, `echo $x` imprimirá el valor de `x`.
 
+:::{note}
+Cuando declaramos nuestras variables basta con hacer `x=10` o `name="Abelardo"`. Pero cuando llamamos a nuestras variables tenemos dos opciones:
+- `echo $x` y `echo $name`
+- `echo ${x}` y `echo ${name}`
+
+En esencia ambas formas son correctas, pero la segunda forma es más recomendable. Supongamos que ademas de las variables `x` y `name`, tenemos una variable que declararemos así: `name_x="Juan_Perez"`.
+
+Supongamos ahora que tenemos 10 archivos de secuencias en formato fasta:
+
+1. `Abelardo_1.fasta`
+2. `Abelardo_2.fasta`
+
+...
+
+10.  `Abelardo_10.fasta`
+
+Cómo podrías accesar al archivo `Abelardo_10.fasta` usando las variables que vimos anteriormente?
+
+- `cat $name_x.fasta`
+- `cat $name_$x.fasta`
+- `cat $name\_$x.fasta`
+- `cat ${name}_${x}.fasta`
+
+La primera opción mostrará el error:
+`cat: Juan_Perez.fasta file not found`
+
+La segunda opción mostrará el error:
+`cat: 10.fasta file not found`
+
+La tercera opción funcionará correctamente, pero es algo ilegible
+
+La cuarta opción, si bien más larga, es más explícita, más legible y menos susceptible a errores sintácticos
+
+:::
+
 ### **Uso de estructuras de control y bucles**
 
 Los bucles y las estructuras de control permiten ejecutar bloques de código de forma condicional o repetitiva. La estructura `if-else` permite ejecutar bloques de código si se cumple una determinada condición. Por ejemplo, al ejecutar:
@@ -13,7 +48,7 @@ x=8
 ```
 
 ```bash
-  if [ $x -gt 5 ]
+  if [ "${x}" -gt 5 ]
   then
       echo "x es mayor que 5"
   else
@@ -24,12 +59,12 @@ x=8
 y también se pueden usar en combinación con los símbolos `[]` 
 
 ```bash
-if [ $x -gt 1 ] && [ $x -lt 10 ]; then
+if [ "${x}" -gt 1 ] && [ "${x}" -lt 10 ]; then
     echo "El número está entre 1 y 10."
 fi
 ```
 * Otras opciones son:
-    * `eq`: Compara si dos valores son iguales.
+    * `-eq`: Compara si dos valores son iguales.
     * `-lt`: Compara si un valor es menor que otro.
     * `-le`: Compara si un valor es menor o igual que otro.
     * `-ne`: Compara si dos valores no son iguales.
@@ -43,7 +78,7 @@ Los bucles `for` y `while` permiten ejecutar bloques de código varias veces. Po
   ```bash
   for i in {1..5}
   do
-      echo $i
+      echo ${i}
   done
   ```
 
@@ -51,9 +86,9 @@ Por otra parte, un bucle `while` se ejecutará mientras se cumpla una determinad
 
   ```bash
   i=1
-  while [ $i -le 5 ]
+  while [ "${i}" -le 5 ]
   do
-      echo $i
+      echo ${i}
       ((i++))
   done
   ```
@@ -83,7 +118,7 @@ Y posteriormente hacer un script que procese el contenido de **virus.txt** ingre
 
 while read -r nombre
 do
-    echo "Nombre de virus: $nombre"
+    echo "Nombre de virus: ${nombre}"
 done < virus.txt
 ```
 
@@ -97,12 +132,12 @@ Modifica y ejecuta el siguiente ejemplo de script para procesar archivos ***FAST
 
 # Definir las variables
 DIR_FASTQ="/ruta/a/directorio/con/fastq"  # Actualiza la ruta al directorio que contiene los archivos FASTQ
-ARCHIVOS_FASTQ=($(ls $DIR_FASTQ/*.fastq.gz))  # Lista de archivos FASTQ
+ARCHIVOS_FASTQ=($(ls ${DIR_FASTQ}/*.fastq.gz))  # Lista de archivos FASTQ
 
 # Bucle para procesar cada archivo FASTQ
 for FASTQ in ${ARCHIVOS_FASTQ[@]}
 do
-    echo "Procesando archivo: $FASTQ"
+    echo "Procesando archivo: ${FASTQ}"
     # Aquí puedes añadir los comandos para procesar el archivo FASTQ
 done
 ```

@@ -144,5 +144,3 @@ Una vez que nos aseguremos que el archivo muestra todos los elementos visuales q
 ```bash
 R -e "rmarkdown::render('informe_calidad.Rmd')"
 ```
-
-### Hola Vic

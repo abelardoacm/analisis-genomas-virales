@@ -112,10 +112,10 @@ if [ "$#" -ne 1 ]; then
 fi
 
 # Ejecutar FastQC en todos los archivos FASTQ del directorio
-fastqc $DIR_ENTRADA/*.fastq.gz
+fastqc ${DIR_ENTRADA}/*.fastq.gz
 
 # Generar informe de MultiQC
-multiqc $DIR_ENTRADA -o $DIR_ENTRADA/multiqc_report
+multiqc ${DIR_ENTRADA} -o ${DIR_ENTRADA}/multiqc_report
 
 ```
 

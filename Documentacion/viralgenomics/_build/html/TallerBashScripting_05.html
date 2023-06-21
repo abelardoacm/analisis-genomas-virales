@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scripts interactivos &#8212; Analisis de genomas virales</title>
   
   
@@ -44,7 +43,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -69,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Control de calidad de lecturas" href="TallerBashScripting_06.html" />
     <link rel="prev" title="Debugging y solución de problemas en Bash Scripting" href="TallerBashScripting_04.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -173,6 +171,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_05.html">El periódico explosivo</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="de_novo_06.html">El ensamblaje del genoma como un problema computacional</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="de_novo_07.html">De una cadena a un grafo</a></li>
+
 </ul>
 </li>
 </ul>
@@ -231,7 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+   title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -248,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2FTallerBashScripting_05.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
+   title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -269,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -278,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/TallerBashScripting_05.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -296,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="Imprimir en PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -316,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="Modo de pantalla completa"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -364,7 +370,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> Contenido </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -381,11 +387,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="scripts-interactivos">
-<h1>Scripts interactivos<a class="headerlink" href="#scripts-interactivos" title="Permalink to this heading">#</a></h1>
+  <div class="section" id="scripts-interactivos">
+<h1>Scripts interactivos<a class="headerlink" href="#scripts-interactivos" title="Permalink to this headline">#</a></h1>
 <p>Una práctica común en la bioinformática, será el dotar a nuestros scripts la capacidad de interactuar con el usuario para obtener información en tiempo de ejecución. Esto puede ser para guiarlo en la ejecución a través de instrucciones, o para obtener datos de usuario que cambian en cada uso de nuestro script.</p>
-<section id="read">
-<h2><strong><code class="docutils literal notranslate"><span class="pre">read</span></code></strong><a class="headerlink" href="#read" title="Permalink to this heading">#</a></h2>
+<div class="section" id="read">
+<h2><strong><code class="docutils literal notranslate"><span class="pre">read</span></code></strong><a class="headerlink" href="#read" title="Permalink to this headline">#</a></h2>
 <p>El comando read en Bash se utiliza para capturar la entrada del usuario desde <code class="docutils literal notranslate"><span class="pre">stdin</span></code> y le asigna una variable.</p>
 <p>Por ejemplo, podemos hacer una versión interactiva de nuestro script anterior:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -395,30 +401,30 @@ document.write(`
 <span class="nb">read</span><span class="w"> </span>DIR_FASTQ
 
 <span class="c1"># Verificar que el directorio proporcionado existe</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DIR_FASTQ</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;El directorio proporcionado no existe: </span><span class="nv">$DIR_FASTQ</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">DIR_FASTQ</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;El directorio proporcionado no existe: </span><span class="si">${</span><span class="nv">DIR_FASTQ</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Función para procesar un archivo FASTQ</span>
 procesar_fastq<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">FASTQ</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Procesando archivo: </span><span class="nv">$FASTQ</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Procesando archivo: </span><span class="si">${</span><span class="nv">FASTQ</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="w">    </span><span class="c1"># Aquí puedes añadir los comandos para procesar el archivo FASTQ</span>
 <span class="o">}</span>
 
 <span class="c1"># Bucle para procesar cada archivo FASTQ</span>
-<span class="k">for</span><span class="w"> </span>FASTQ<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DIR_FASTQ</span><span class="s2">&quot;</span>/*.fastq.gz
+<span class="k">for</span><span class="w"> </span>FASTQ<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">DIR_FASTQ</span><span class="si">}</span><span class="s2">&quot;</span>/*.fastq.gz
 <span class="k">do</span>
-<span class="w">    </span>procesar_fastq<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FASTQ</span><span class="s2">&quot;</span>
+<span class="w">    </span>procesar_fastq<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">FASTQ</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </pre></div>
 </div>
 <p>Este script solicita al usuario que introduzca la ruta al directorio con archivos FASTQ, y luego utiliza esa ruta para leerlos. Si el directorio proporcionado no existe, el script imprime un mensaje de error y termina.</p>
 <p>Esto es un ejemplo de cómo un script interactivo puede recoger datos del usuario y adaptarse en consecuencia.</p>
-</section>
-<section id="argumentos-y-parametros">
-<h2>Argumentos y parámetros<a class="headerlink" href="#argumentos-y-parametros" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="argumentos-y-parametros">
+<h2>Argumentos y parámetros<a class="headerlink" href="#argumentos-y-parametros" title="Permalink to this headline">#</a></h2>
 <p>Al invocar un script desde la línea de comandos, podemos pasar argumentos a nuestro script, es decir, acompañar al comando de ejecución con otras cadenas de texto, que pasen a guardarse en variables utilizadas en el script. Estos argumentos son accesibles para el script mediante variables especiales o posicionales <span class="math notranslate nohighlight">\(1, \)</span>2, <span class="math notranslate nohighlight">\(3, etc., donde \)</span>1 se refiere al primer argumento, <span class="math notranslate nohighlight">\(2 al segundo, y así sucesivamente. Por ejemplo, en el comando ./script.sh argumento1 argumento2, dentro de script.sh, \)</span>1 tendría el valor argumento1 y $2 tendría el valor argumento2.</p>
 <p>De esta forma podemos utilizar un script una y otra vez con diferentes parámetros, simplemente cambiando los argumentos posicionales.</p>
 <p>El siguiente script define las variables con las que opera a partir de argumentos posicionales.</p>
@@ -435,18 +441,18 @@ procesar_fastq<span class="o">()</span><span class="w"> </span><span class="o">{
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FASTQ</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;El archivo FASTQ proporcionado no existe: </span><span class="nv">$FASTQ</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">FASTQ</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;El archivo FASTQ proporcionado no existe: </span><span class="si">${</span><span class="nv">FASTQ</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Subset</span>
-seqtk<span class="w"> </span>sample<span class="w"> </span>-s100<span class="w"> </span><span class="nv">$FASTQ</span><span class="w"> </span><span class="nv">$NSUBMUESTRA</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$OUTPUT</span>
+seqtk<span class="w"> </span>sample<span class="w"> </span>-s100<span class="w"> </span><span class="si">${</span><span class="nv">FASTQ</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NSUBMUESTRA</span><span class="si">}</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OUTPUT</span><span class="si">}</span>
 </pre></div>
 </div>
 <p><strong>NOTA:¿Cómo podrías dotar al script la capacidad de operar con argumentos posicionales cuando estos son declarados, o mediante <code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">input</span> <span class="pre">stdin</span></code> con <code class="docutils literal notranslate"><span class="pre">read</span></code> cuando se da el caso de que no están definidds</strong></p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -511,7 +517,7 @@ seqtk<span class="w"> </span>sample<span class="w"> </span>-s100<span class="w">
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> Contenido
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -531,7 +537,7 @@ seqtk<span class="w"> </span>sample<span class="w"> </span>-s100<span class="w">
   <div class="footer-item">
     
 <p class="component-author">
-By ATGenomics
+Por ATGenomics
 </p>
 
   </div>
