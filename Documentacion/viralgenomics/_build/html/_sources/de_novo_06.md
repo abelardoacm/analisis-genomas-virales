@@ -43,8 +43,6 @@ y asi sucesivamente.
 
 ## Ensamblar un genoma viral con dominios duplicados es como un rompecabezas
 
-Una analogía que ilustra la dificultad de ensamblar un genoma con muchos repetidos es el rompecabezas de Triazzle® (mostrado abajo). La gente suele armar rompecabezas conectando piezas que coinciden. Sin embargo, cada pieza en el Triazzle coincide con más de una pieza; en el Triazzle de abajo, cada rana aparece varias veces. Si procedes sin cuidado, entonces probablemente emparejarás la mayoría de las piezas pero no podrás encajar las restantes. Y sin embargo, el Triazzle solo tiene dieciséis piezas, lo que debería hacernos reflexionar sobre cómo ensamblar un genoma a partir de millones de lecturas.
+Una analogía que ilustra la dificultad de ensamblar un genoma con muchos repetidos es el rompecabezas de Triazzle. La gente suele armar rompecabezas conectando piezas que coinciden. Sin embargo, cada pieza en el Triazzle coincide con más de una pieza; en el Triazzle de abajo, cada rana aparece varias veces. Si procedes sin cuidado, entonces probablemente emparejarás la mayoría de las piezas pero no podrás encajar las restantes. Y sin embargo, el Triazzle solo tiene dieciséis piezas, lo que debería hacernos reflexionar sobre cómo ensamblar un genoma a partir de millones de lecturas.
 
-<p align="center">
-  <img src="./imagenes/triazzle.png" />
-</p>
+![Figura 2](./imagenes/triazzle.png)
