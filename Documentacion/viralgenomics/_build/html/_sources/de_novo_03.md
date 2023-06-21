@@ -10,7 +10,7 @@ SPAdes tiene una amplia gama de opciones y parámetros que se pueden ajustar par
 ### **Etapas de SPAdes**
 
 
- * **Creación de gráficos de De Bruijn:** Cada vértice en el gráfico representa una secuencia (un k-mer) y cada arista representa una superposición entre dos secuencias. Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.
+ * **Creación de gráficos de De Bruijn:** Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.
 
  * **Simplificación del gráfico:** SPAdes simplifica el gráfico de De Bruijn para reducir la complejidad del problema de ensamble.
 
@@ -36,10 +36,10 @@ Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que ten
 PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.
 :::
 
-Tras definir y discutir algunos de los parámetros, ejecutaremos el siguiente comando para la muestra 1:
+Ejecutaremos el siguiente comando para la muestra 1, recuerda ajustar las rutas:
 
 ```bash
-spades.py -1 sample1_R1.fastq.gz -2 sample1_R2.fastq.gz -o ../spades_test/
+spades.py -1 sample1_R1.fastq.gz -2 sample1_R2.fastq.gz -o ./spades_out/
 ```
 
 

@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_03';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Diseño de informe de calidad de ensambles" href="de_novo_04.html" />
+    <link rel="next" title="El periódico que explota" href="de_novo_05.html" />
     <link rel="prev" title="SKESA" href="de_novo_02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -168,7 +168,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SPAdes</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_05.html">El periódico que explota</a></li>
 
 
@@ -177,6 +176,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_07.html">De una cadena a un grafo</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="de_novo_08.html">Pipelines</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -404,7 +407,7 @@ document.write(`
 <div class="section" id="etapas-de-spades">
 <h2><strong>Etapas de SPAdes</strong><a class="headerlink" href="#etapas-de-spades" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><strong>Creación de gráficos de De Bruijn:</strong> Cada vértice en el gráfico representa una secuencia (un k-mer) y cada arista representa una superposición entre dos secuencias. Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.</p></li>
+<li><p><strong>Creación de gráficos de De Bruijn:</strong> Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.</p></li>
 <li><p><strong>Simplificación del gráfico:</strong> SPAdes simplifica el gráfico de De Bruijn para reducir la complejidad del problema de ensamble.</p>
 <ol class="arabic simple">
 <li><p>Eliminación de puntas: Las puntas son pequeñas ramas en el grafo que generalmente se deben a errores de secuenciación. Al eliminar estas puntas, SPAdes puede reducir el ruido en el grafo.</p></li>
@@ -427,8 +430,8 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.</p>
 </div>
-<p>Tras definir y discutir algunos de los parámetros, ejecutaremos el siguiente comando para la muestra 1:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>../spades_test/
+<p>Ejecutaremos el siguiente comando para la muestra 1, recuerda ajustar las rutas:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>./spades_out/
 </pre></div>
 </div>
 </div>
@@ -502,11 +505,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="de_novo_04.html"
+       href="de_novo_05.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Diseño de informe de calidad de ensambles</strong></p>
+        <p class="prev-next-title">El periódico que explota</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
