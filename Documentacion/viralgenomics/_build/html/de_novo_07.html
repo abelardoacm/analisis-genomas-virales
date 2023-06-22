@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>De una cadena a un grafo &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Pipelines" href="de_novo_08.html" />
     <link rel="prev" title="El ensamblaje del genoma como un problema computacional" href="de_novo_06.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_07.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/de_novo_07.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -392,8 +404,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="de-una-cadena-a-un-grafo">
-<h1>De una cadena a un grafo<a class="headerlink" href="#de-una-cadena-a-un-grafo" title="Permalink to this headline">#</a></h1>
+  <section id="de-una-cadena-a-un-grafo">
+<h1>De una cadena a un grafo<a class="headerlink" href="#de-una-cadena-a-un-grafo" title="Permalink to this heading">#</a></h1>
 <p>Las lecturas duplicadas de un genoma requieren alguna forma de anticipar la correcta secuencia de ensamblaje.</p>
 <p>Consideremos que nuestra secuencia a reconstruir es <code class="docutils literal notranslate"><span class="pre">TAATGCCATGGGATGTT</span></code>.</p>
 <p>En la figura siguiente, los k-mers consecutivos en TAATGCCATGGGATGTT están vinculados para formar el camino genómico de esta cadena mostrada como un grafo, una red de nodos conectados por aristas.</p>
@@ -402,9 +414,9 @@ document.write(`
 <p><img alt="Figura 2" src="_images/de_novo_04.png" /></p>
 <p>El grafo muestra todas las conexiones entre los nodos que representan la composición de k-mers de TAATGCCATGGGATGTT. Este grafo tiene quince nodos y 28 aristas.</p>
 <p>Observa que el genoma todavía se puede representar recorriendo las aristas horizontales desde TAA hasta GTT.</p>
-</div>
-<div class="section" id="el-cruel-mundo-real">
-<h1>El cruel mundo real<a class="headerlink" href="#el-cruel-mundo-real" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="el-cruel-mundo-real">
+<h1>El cruel mundo real<a class="headerlink" href="#el-cruel-mundo-real" title="Permalink to this heading">#</a></h1>
 <p>En la secuenciación del genoma de novo, no sabemos de antemano cómo ordenar correctamente las lecturas. ¡El camino del genoma ha desaparecido!</p>
 <p><img alt="Figura 3" src="_images/de_novo_06.png" /></p>
 <p>Este camino del genoma puede haber desaparecido a simple vista, pero aún debe estar presente, ya que simplemente hemos reorganizado los nodos del grafo.</p>
@@ -423,14 +435,14 @@ document.write(`
 <p><img alt="Figura 6" src="_images/de_novo_09.png" /></p>
 <p>Nada parece nuevo aquí hasta que comencemos a unir nodos con la misma etiqueta. En la siguiente figura, acercamos cada vez más los tres nodos AT hasta que se han unido en un solo nodo.</p>
 <p><img alt="Figura 7" src="_images/de_novo_10.png" /></p>
-<div class="section" id="de-brujin-graphs">
-<h2><strong>de Brujin graphs</strong><a class="headerlink" href="#de-brujin-graphs" title="Permalink to this headline">#</a></h2>
+<section id="de-brujin-graphs">
+<h2><strong>de Brujin graphs</strong><a class="headerlink" href="#de-brujin-graphs" title="Permalink to this heading">#</a></h2>
 <p>Finalmente, unimos los dos nodos etiquetados como GG (GG y GG), lo que produce un tipo especial de arista llamada bucle que conecta GG consigo mismo. El número de nodos en el grafo resultante (mostrado a la derecha a continuación) se ha reducido de 16 a 11, mientras que el número de aristas se ha mantenido igual. Este grafo se llama el grafo de De Bruijn de <code class="docutils literal notranslate"><span class="pre">TAATGCCATGGGATGTT</span></code>.</p>
 <p>Observa que el grafo de De Bruijn a continuación tiene tres aristas diferentes que conectan AT con TG (que representan tres copias de la repetición ATG).</p>
 <p><img alt="Figura 8" src="_images/de_novo_11.png" /></p>
 <p>Los ensambladores basados en grafos de Brujin operan a partir de la definición de k-mers, que permiten generar un primer grafo global desconectado, que a través de múltiples iteraciones se reduce en tamaño y aumenta su conexión. Los contigs que obtenemos son en esencia, las mejores soluciones a un camino Hamiltoniano en los grafos de De Bruijn.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -495,7 +507,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -519,7 +531,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

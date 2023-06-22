@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Introducción al Bash Scripting &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Conceptos clave en Bash Scripting:" href="TallerBashScripting_02.html" />
     <link rel="prev" title="Taller Bash Scripting" href="TallerBashScripting_00.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2FTallerBashScripting_01.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/TallerBashScripting_01.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -392,18 +404,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="introduccion-al-bash-scripting">
-<h1>Introducción al Bash Scripting<a class="headerlink" href="#introduccion-al-bash-scripting" title="Permalink to this headline">#</a></h1>
-<div class="section" id="que-es-el-bash-scripting">
-<h2><strong>¿Qué es el Bash scripting?</strong><a class="headerlink" href="#que-es-el-bash-scripting" title="Permalink to this headline">#</a></h2>
+  <section id="introduccion-al-bash-scripting">
+<h1>Introducción al Bash Scripting<a class="headerlink" href="#introduccion-al-bash-scripting" title="Permalink to this heading">#</a></h1>
+<section id="que-es-el-bash-scripting">
+<h2><strong>¿Qué es el Bash scripting?</strong><a class="headerlink" href="#que-es-el-bash-scripting" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>El <em>shell</em> es un programa de computadora que proporciona una interfaz de usuario para interactuar con el sistema operativo. <em><strong>Bash</strong></em> es el <em>shell</em>, o lenguaje de comandos más utilizado, ya que es el intérprete de comandos predeterminado en la mayoría de las distribuciones de <em>Linux</em>.</p></li>
 <li><p>Un <em><strong>Bash script</strong></em>, o script de <em>Bash</em>, es un archivo de texto que contiene una serie de comandos escritos Bash, utilizados para automatizar tareas en sistemas operativos basados en <em><strong>Unix</strong></em>, como <em>Linux</em> y <em>macOS</em>.</p></li>
 <li><p>Por ejemplo, podrías tener un script que automatice la copia de seguridad de ciertos archivos en tu sistema, o uno que descargue e instale actualizaciones de software. Los Bash scripts también son utilizados en labores científicas y son el pan de cada día para muchxs bioinformáticxs.</p></li>
 </ul>
-</div>
-<div class="section" id="ventajas-y-aplicaciones-del-bash-scripting">
-<h2><strong>Ventajas y aplicaciones del Bash scripting</strong><a class="headerlink" href="#ventajas-y-aplicaciones-del-bash-scripting" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="ventajas-y-aplicaciones-del-bash-scripting">
+<h2><strong>Ventajas y aplicaciones del Bash scripting</strong><a class="headerlink" href="#ventajas-y-aplicaciones-del-bash-scripting" title="Permalink to this heading">#</a></h2>
 <p>Entre las ventajas del Bash scripting se encuentran:</p>
 <ol class="arabic simple">
 <li><p><strong>Automatización</strong>: Permite la automatización de tareas repetitivas, ahorrando tiempo y reduciendo la probabilidad de errores humanos.</p></li>
@@ -413,13 +425,13 @@ document.write(`
 <li><p><strong>Escalabilidad</strong>: Pueden adaptarse a diferentes tamaños de datos y proyectos. Puedes escribir scripts que procesen muestras individuales o scripts más complejos que procesen grandes conjuntos de datos.</p></li>
 </ol>
 <p>El uso de <strong>scripts de Bash</strong> para el <strong>análisis de datos de secuenciación</strong> ofrece ventajas significativas, como la <strong>automatización</strong> de tareas repetitivas, la <strong>flexibilidad</strong> para adaptar el análisis a necesidades específicas, la <strong>integración</strong> con otras herramientas bioinformáticas, la <strong>reproducibilidad</strong> de los análisis, la <strong>escalabilidad</strong> para manejar diferentes tamaños de datos y proyectos, y el <strong>control personalizado</strong> del flujo de análisis.</p>
-</div>
-<div class="section" id="hello-world-el-primer-script-de-todxs">
-<h2><strong>HELLO WORLD! El primer script de todxs</strong><a class="headerlink" href="#hello-world-el-primer-script-de-todxs" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="hello-world-el-primer-script-de-todxs">
+<h2><strong>HELLO WORLD! El primer script de todxs</strong><a class="headerlink" href="#hello-world-el-primer-script-de-todxs" title="Permalink to this heading">#</a></h2>
 <p>Ahora, veamos un script de Bash más sencillo y popular. Este script imprimirá el mensaje “¡Hola, mundo!” cuando se ejecute.</p>
 <p>Para crear un script de Bash, primero necesitas abrir un archivo de texto en cualquier editor de texto. Vamos a llamar a este archivo <code class="docutils literal notranslate"><span class="pre">1_1_HELLO_WORLD.sh</span></code>.</p>
-<div class="section" id="shebang">
-<h3><em><strong>shebang</strong></em><a class="headerlink" href="#shebang" title="Permalink to this headline">#</a></h3>
+<section id="shebang">
+<h3><em><strong>shebang</strong></em><a class="headerlink" href="#shebang" title="Permalink to this heading">#</a></h3>
 <p>En la primera línea del script, debes incluir una “shebang” (<code class="docutils literal notranslate"><span class="pre">#!</span></code>). Esta es una secuencia de caracteres que indica al sistema que el resto del archivo debe interpretarse como un script de Bash. La <em>shebang</em> de Bash es es <strong><code class="docutils literal notranslate"><span class="pre">#!/bin/bash</span></code></strong>, que como puedrás notar <strong>es una ruta en de nuestro sistema</strong>.</p>
 <p>A continuación, puedes añadir los comandos que quieras que se ejecuten. Para nuestro script <code class="docutils literal notranslate"><span class="pre">1_1_HELLO_WORLD.sh</span></code>, sólo queremos que imprima “¡Hola, mundo!”, utilizando el comando <strong><code class="docutils literal notranslate"><span class="pre">echo</span></code></strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -428,9 +440,9 @@ document.write(`
 </div>
 <p>Para ejecutar este script, se deben otorgar permisos de ejecución al archivo utilizando el comando <em><strong><code class="docutils literal notranslate"><span class="pre">chmod</span></code></strong></em>. A continuación, puedes ejecutarlo con <code class="docutils literal notranslate"><span class="pre">./1_1_HELLO_WORLD.sh</span></code> desde la terminal.</p>
 <p>Este es un ejemplo simple, pero a medida que te familiarices con Bash, podrás crear scripts más complejos y útiles.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -495,7 +507,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -519,7 +531,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

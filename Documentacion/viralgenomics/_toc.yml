@@ -22,3 +22,7 @@ chapters:
     - file: de_novo_07.md
     - file: de_novo_08.md
     - file: de_novo_04.md
+    - file: de_novo_09.md
+- file: meta_01.md
+  sections:
+    - file: meta_02.md

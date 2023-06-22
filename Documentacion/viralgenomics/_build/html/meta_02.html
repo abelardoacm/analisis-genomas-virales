@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>SPAdes &#8212; Analisis de genomas virales</title>
+    <title>Asignación taxonómica &#8212; Analisis de genomas virales</title>
   
   
   
@@ -61,11 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_03';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'meta_02';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="El periódico que explota" href="de_novo_05.html" />
-    <link rel="prev" title="SKESA" href="de_novo_02.html" />
+    <link rel="prev" title="Metagenómica" href="meta_01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,10 +165,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_06.html">Control de calidad de lecturas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_05.html">El periódico que explota</a></li>
 
 
@@ -188,8 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Asignación taxonómica</strong></a></li>
 
 
 </ul>
@@ -265,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_03.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fmeta_02.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/de_novo_03.md" target="_blank"
+      <li><a href="_sources/meta_02.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>SPAdes</h1>
+    <h1>Asignación taxonómica</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,17 +386,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Asignación taxonómica</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metaphlan"><strong>MetaPhlAn</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kraken2"><strong>Kraken2</strong></a></li>
 </ul>
-</li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -408,72 +401,58 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="spades">
-<h1><strong>SPAdes</strong><a class="headerlink" href="#spades" title="Permalink to this heading">#</a></h1>
-<section id="introduccion-a-spades">
-<h2><strong>Introducción a SPAdes</strong><a class="headerlink" href="#introduccion-a-spades" title="Permalink to this heading">#</a></h2>
-<p>SPAdes (St. Petersburg genome assembler) es un programa de software que se utiliza para el ensamble de novo de genomas bacterianos, aunque también ha demostrado ser efectivo en el ensamble de genomas virales con alta variabilidad. Trabaja tanto con lecturas de secuenciación de longitud corta (como las generadas por Illumina) como con lecturas de longitud media a larga (como las generadas por PacBio o Oxford Nanopore).</p>
-<p>SPAdes se basa en algoritmos de ensamble de novo que utilizan una combinación de técnicas, incluyendo <em><strong>De Bruijn Graphs</strong></em>  y técnicas de mapeo de lecturas.</p>
-<p>SPAdes tiene una amplia gama de opciones y parámetros que se pueden ajustar para optimizar los resultados del ensamble. Por ejemplo, SPAdes puede realizar ensamblajes híbridos utilizando tanto lecturas de secuenciación de longitud corta como de longitud larga, lo que permite aprovechar las ventajas de ambos tipos de datos.</p>
+  <section id="asignacion-taxonomica">
+<h1><strong>Asignación taxonómica</strong><a class="headerlink" href="#asignacion-taxonomica" title="Permalink to this heading">#</a></h1>
+<p>La asignación taxonómica es el proceso de clasificar y etiquetar secuencias genéticas en función de su similitud con secuencias de referencia previamente identificadas. Se utiliza para determinar a qué taxón o categoría taxonómica (como especie, género, familia, etc.) pertenece una secuencia desconocida. La asignación taxonómica es fundamental en la metagenómica y la metagenómica viral, ya que permite identificar los organismos o virus presentes en una muestra.</p>
+<p>Los perfiles taxonómicos son representaciones de la composición de una muestra metagenómica. Estos perfiles indican las proporciones relativas de diferentes grupos taxonómicos presentes en la comunidad microbiana o viral.</p>
+<p>Usualmente, la asignación taxonómica y la generación de perfiles taxonómicos se basaa en algoritmos y bases de datos que contienen información taxonómica y secuencias de referencia.</p>
 </section>
-<section id="etapas-de-spades">
-<h2><strong>Etapas de SPAdes</strong><a class="headerlink" href="#etapas-de-spades" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Creación de gráficos de De Bruijn:</strong> Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.</p></li>
-<li><p><strong>Simplificación del gráfico:</strong> SPAdes simplifica el gráfico de De Bruijn para reducir la complejidad del problema de ensamble.</p>
-<ol class="arabic simple">
-<li><p>Eliminación de puntas: Las puntas son pequeñas ramas en el grafo que generalmente se deben a errores de secuenciación. Al eliminar estas puntas, SPAdes puede reducir el ruido en el grafo.</p></li>
-<li><p>Fusión de bulbos: Los bulbos son estructuras en el grafo que se forman debido a variaciones menores en la secuencia. Al fusionar estos bulbos en una sola ruta, SPAdes puede reducir la complejidad del grafo.</p></li>
-<li><p>Compresión de caminos: Cuando hay una serie de nodos en el grafo que todos tienen un solo predecesor y un solo sucesor, pueden comprimirse en un solo nodo. Esto puede reducir significativamente el tamaño del grafo.</p></li>
-<li><p>Resolución de repeticiones: Las repeticiones son secuencias que aparecen más de una vez en el genoma y pueden causar problemas en el ensamblaje ya que crean múltiples rutas posibles a través del grafo. SPAdes utiliza varias técnicas para tratar de resolver estas repeticiones y elegir la ruta más probable.</p></li>
-</ol>
-</li>
-<li><p><strong>Ensamblaje del genoma:</strong> Finalmente, SPAdes utiliza el gráfico de De Bruijn simplificado para generar los contigs del ensamble. Este proceso implica la identificación de caminos a través del gráfico que representan secuencias genómicas probables.</p></li>
-</ul>
-<p>Es importante destacar que SPAdes utiliza un enfoque multi-k-mer en el que se crean y procesan varios gráficos de De Bruijn con diferentes valores de k. Esto permite a SPAdes manejar más efectivamente las variaciones en la cobertura de secuenciación y las regiones repetitivas en el genoma.</p>
-</section>
-<section id="practica-uso-de-spades-para-el-ensamblaje-de-novo">
-<h2><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong><a class="headerlink" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo" title="Permalink to this heading">#</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DETOUR: Como muchas herramientas bioinformáticas, para instalarlas en nuestras computadoras personales podemos recurrir a conda Si necesitas instalar SPAdes en tu computadora, podrás hacerlo con el siguiente comando: `$ conda install -c bioconda spades`
+<section id="metaphlan">
+<h1><strong>MetaPhlAn</strong><a class="headerlink" href="#metaphlan" title="Permalink to this heading">#</a></h1>
+<p>MetaPhlAn (Metagenomic Phylogenetic Analysis) es una herramienta bioinformática ampliamente utilizada para el análisis taxonómico de datos metagenómicos. MetaPhlAn permite determinar la composición taxonómica de una muestra metagenómica utilizando secuencias de marcadores genéticos conservados presentes en los genomas.</p>
+<p><img alt="Figura 1" src="https://huttenhower.sph.harvard.edu/wp-content/uploads/2020/12/metaphlan3_starred-300x214.png" /></p>
+<p>El funcionamiento de MetaPhlAn se basa en la construcción de un perfil taxonómico utilizando un conjunto de marcadores génicos seleccionados que se encuentran en múltiples genomas. Estos marcadores son secuencias cortas y conservadas que se utilizan como “huellas digitales” para identificar y clasificar organismos.</p>
+<p>El proceso típico de análisis con MetaPhlAn consta de los siguientes pasos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Preparación de los datos: Las secuencias metagenómicas se someten a un proceso de preprocesamiento, que incluye la eliminación de secuencias de baja calidad y adaptadores.
+
+Mapeo de secuencias: Las secuencias preprocesadas se comparan con una base de datos de marcadores genéticos utilizando un algoritmo de alineamiento eficiente. MetaPhlAn utiliza el programa Bowtie2 para realizar este paso.
+
+Cálculo de abundancias: MetaPhlAn asigna la abundancia relativa de cada taxón basada en la cantidad de secuencias que se alinean a los marcadores correspondientes. Utiliza un enfoque estadístico que tiene en cuenta las diferencias en la longitud y la variabilidad de los marcadores.
+
+Generación de perfiles taxonómicos: A partir de las abundancias asignadas a cada taxón, MetaPhlAn genera un perfil taxonómico que muestra la composición taxonómica de la muestra. Los perfiles se representan típicamente como un porcentaje de la abundancia relativa de cada taxón.
 </pre></div>
 </div>
-<p>Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que tenemos muestras pareadas, simplemente tenemos que usar ambos archivos como argumento e indicar el directorio de salida. Pero antes…</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.</p>
+<p>Es importante destacar que MetaPhlAn se basa en una estrategia de mapeo de secuencias cortas a marcadores genéticos, lo que permite una identificación rápida y eficiente de organismos microbianos en una muestra metagenómica. Sin embargo, debido a su enfoque basado en marcadores seleccionados, MetaPhlAn puede estar limitado en su capacidad para detectar y clasificar organismos que no posean los marcadores específicos utilizados en la base de datos, como la gran mayoría de los virus, incluso los ya conocidos.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>metaphlan<span class="w"> </span><span class="o">[</span>opciones<span class="o">]</span><span class="w"> </span>archivo_entrada.fastq<span class="w"> </span>archivo_salida.txt
+</pre></div>
 </div>
-<p>Ejecutaremos el siguiente comando para la muestra 1, recuerda ajustar las rutas:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>./spades_out/
+<p>Al trabajar con virus utilizando MetaPhlAn, se pueden ajustar varias opciones y parámetros para adaptar el análisis a las características específicas de los virus. A continuación, se mencionan algunos de los principales parámetros y opciones que pueden ser útiles al trabajar con metagenómica viral:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Base de datos de referencia: MetaPhlAn utiliza una base de datos de marcadores genéticos para realizar el mapeo y la asignación taxonómica. Para analizar datos virales, es importante asegurarse de utilizar una base de datos que contenga secuencias de virus. MetaPhlAn proporciona bases de datos específicas para virus, como &quot;v20_m200&quot; para la versión 20 de RefSeq con un umbral de longitud mínima de 200 nucleótidos.
+
+Ajustes de mapeo: Es posible ajustar los parámetros de mapeo utilizados por MetaPhlAn para mejorar la sensibilidad y especificidad del análisis. Estos incluyen opciones como la longitud mínima de coincidencia (--min_alignment_len) y la puntuación mínima de mapeo (--min_alignment_score).
+
+Umbral de detección: MetaPhlAn asigna abundancias relativas a los diferentes taxones detectados en la muestra. Se puede ajustar un umbral de detección (--bowtie2db) para limitar los resultados solo a aquellos taxones con abundancias superiores a un valor determinado.
 </pre></div>
 </div>
 </section>
-<section id="interpretacion-de-los-resultados-de-spades">
-<h2>** Interpretación de los resultados de SPAdes**<a class="headerlink" href="#interpretacion-de-los-resultados-de-spades" title="Permalink to this heading">#</a></h2>
-<p>Después de ejecutar SPAdes, se generará un directorio de salida (que especificaste con la opción <code class="docutils literal notranslate"><span class="pre">-o</span></code> en el comando de SPAdes). Dentro de este directorio, encontrarás una serie de archivos y subdirectorios que contienen los resultados del ensamblaje de SPAdes.</p>
-<section id="contigs-fasta-y-scaffolds-fasta">
-<h3>1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code><a class="headerlink" href="#contigs-fasta-y-scaffolds-fasta" title="Permalink to this heading">#</a></h3>
-<p>Estos dos archivos contienen los contigüidades (contigs) y ensambles finales (scaffolds) resultantes del ensamblaje.</p>
-<ul class="simple">
-<li><p>Los <code class="docutils literal notranslate"><span class="pre">contigs</span></code> son secuencias que SPAdes ha ensamblado a partir de las lecturas. Son los bloques de construcción básicos del genoma.</p></li>
-<li><p>Los <code class="docutils literal notranslate"><span class="pre">scaffolds</span></code> son conjuntos de contigs que se han unido con la ayuda de las lecturas pareadas. Los scaffolds pueden contener regiones de “N” que representan gaps o regiones desconocidas entre los contigs.</p></li>
-</ul>
-</section>
-<section id="spades-log">
-<h3>2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code><a class="headerlink" href="#spades-log" title="Permalink to this heading">#</a></h3>
-<p>Este archivo contiene el registro de la ejecución de SPAdes. Proporciona información detallada sobre cada etapa del proceso de ensamblaje.</p>
-</section>
-<section id="carpeta-kxx">
-<h3>3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code><a class="headerlink" href="#carpeta-kxx" title="Permalink to this heading">#</a></h3>
-<p>Esta carpeta contiene los resultados intermedios de las distintas etapas del ensamblaje. SPAdes realiza múltiples iteraciones de ensamblaje utilizando diferentes longitudes de k-mers. Cada una de estas iteraciones tiene su propia carpeta, llamada <code class="docutils literal notranslate"><span class="pre">KXX</span></code>, donde <code class="docutils literal notranslate"><span class="pre">XX</span></code> es la longitud del k-mer utilizado.</p>
-</section>
-<section id="params-txt">
-<h3>4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code><a class="headerlink" href="#params-txt" title="Permalink to this heading">#</a></h3>
-<p>Este archivo muestra los parámetros y opciones que se utilizaron para ejecutar SPAdes.</p>
-<hr class="docutils" />
-<p>Para interpretar los resultados de SPAdes, podríamos comenzar por revisar los archivos <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code>,contar el número de contigs/scaffolds, y también puedes calcular su longitud total y la longitud del contig o scaffold más largo.</p>
-<p>Un análisis más detallado requerirá herramientas bioinformáticas adicionales. Por ejemplo, podrías utilizar BLAST para comparar tus contigs o scaffolds con secuencias de referencia conocidas, o podrías utilizar una herramienta de visualización de genomas como Bandage para examinar visualmente el grafo de ensamblaje.</p>
-</section>
-</section>
+<section id="kraken2">
+<h1><strong>Kraken2</strong><a class="headerlink" href="#kraken2" title="Permalink to this heading">#</a></h1>
+<p>Kraken2 y MetaPhlAn son dos herramientas bioinformáticas ampliamente utilizadas para el análisis taxonómico de datos metagenómicos, pero difieren en su enfoque y funcionamiento.</p>
+<p>Kraken2 utiliza un enfoque basado en clasificación taxonómica utilizando k-mers, que son fragmentos cortos. En lugar de utilizar marcadores genéticos conservados, como en MetaPhlAn, Kraken2 asigna las secuencias metagenómicas a través de comparaciones de similitud con una base de datos taxonómica que contiene k-mers representativos de diferentes organismos.</p>
+<p>El funcionamiento básico de Kraken2 implica los siguientes pasos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Construcción de la base de datos: Se genera una base de datos de k-mers a partir de secuencias genómicas de referencia de diferentes organismos. Esta base de datos contiene información taxonómica asociada a cada k-mer.
+
+Preprocesamiento de datos: Las secuencias metagenómicas se someten a un proceso de preprocesamiento similar al de MetaPhlAn, que incluye eliminación de adaptadores, filtrado de calidad y otras etapas de limpieza.
+
+Clasificación taxonómica: Kraken2 compara las secuencias preprocesadas con la base de datos de k-mers utilizando un algoritmo eficiente de búsqueda de similitud. Se asigna una categoría taxonómica a cada secuencia basada en la mejor coincidencia encontrada en la base de datos.
+
+Generación de informe de resultados: Kraken2 genera un informe que resume la composición taxonómica de la muestra, mostrando las proporciones relativas de los diferentes grupos taxonómicos presentes.
+</pre></div>
+</div>
+<p>En cuanto al comando básico de ejecución de Kraken2, sería el siguiente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kraken2<span class="w"> </span>--db<span class="w"> </span>ruta_basedatos<span class="w"> </span>--report<span class="w"> </span>archivo_reporte.txt<span class="w"> </span>archivo_entrada.fastq
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -508,22 +487,13 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="de_novo_02.html"
+       href="meta_01.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>SKESA</strong></p>
+        <p class="prev-next-title"><strong>Metagenómica</strong></p>
       </div>
-    </a>
-    <a class="right-next"
-       href="de_novo_05.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">El periódico que explota</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -543,17 +513,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Asignación taxonómica</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metaphlan"><strong>MetaPhlAn</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kraken2"><strong>Kraken2</strong></a></li>
 </ul>
-</li>
-</ul>
+
   </nav></div>
 
 </div></div>

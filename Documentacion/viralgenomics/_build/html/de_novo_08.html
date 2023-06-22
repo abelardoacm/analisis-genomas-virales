@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Pipelines &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Diseño de informe de calidad de ensambles" href="de_novo_04.html" />
     <link rel="prev" title="De una cadena a un grafo" href="de_novo_07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_08.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/de_novo_08.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -390,17 +402,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="pipelines">
-<h1>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">#</a></h1>
+  <section id="pipelines">
+<h1>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this heading">#</a></h1>
 <p>Un pipeline en el contexto de la bioinformática, es una serie de pasos que se ejecutan en un orden específico. Cada paso en este pipeline toma datos de entrada, realiza alguna operación y genera datos de salida. Estos datos de salida se utilizan entonces como entrada para el siguiente paso del pipeline.</p>
 <p>Este concepto se asemeja a una línea de ensamblaje de una fábrica, donde cada estación de trabajo realiza una tarea específica en un producto que se mueve a lo largo de la línea.</p>
 <p><img alt="Figura 2" src="https://www.netjet.es/wp-content/uploads/2019/04/Gui%CC%81a-para-comprar-tuberi%CC%81as-y-lo-que-debes-tener-en-cuenta-1000x500.jpg" /></p>
 <p>En un pipeline de bioinformática, cada paso a menudo implica un tipo específico de análisis. Por ejemplo, si estás trabajando con datos de secuenciación de DNA, los pasos del pipeline podrían incluir el control de calidad de las lecturas, el alineamiento de las lecturas a una referencia, la llamado de variantes y visualización de los resultados. Cada uno de estos pasos puede requerir una herramienta o software especializado.</p>
 <p>Los pipelines son muy valiosos en bioinformática debido a la gran cantidad de datos que se manejan y la complejidad de los análisis. Proporcionan una manera de estructurar y automatizar los análisis, lo que hace que el procesamiento de los datos sea más eficiente y reproducible. Esto significa que si alguien más necesita realizar el mismo tipo de análisis, puede usar el mismo pipeline y obtener los mismos resultados.</p>
 <p>Los pipelines pueden ser codificados en varios lenguajes de programación y existen varios frameworks específicos para su implementación, como Nextflow, que permite diseñar pipelines complejos de manera sencilla y eficiente.</p>
-</div>
-<div class="section" id="nextflow">
-<h1>Nextflow<a class="headerlink" href="#nextflow" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="nextflow">
+<h1>Nextflow<a class="headerlink" href="#nextflow" title="Permalink to this heading">#</a></h1>
 <p>Nextflow es un marco de trabajo o framework, un sistema de ejecución que proporciona una estructura estándar de construccion de codigo. Nextflow es una herramienta diseñada para hacer más eficientes, reproducibles y portables los análisis complejos de bioinformática. Este lenguaje de programación y marco de ejecución te permite escribir flujos de trabajo computacionales o pipelines con un enfoque basado en scripts y a la vez sacar provecho de la paralelización.</p>
 <p><img alt="Figura 3" src="https://www.nextflow.io/img/nextflow2014_no-bg.png" /></p>
 <p>En esencia, Nextflow es una capa de abstracción, es decir una forma de ocultar los detalles de implementación de una funcionalidad particular, permitiendo que los usuarios o los programas interactúen con la funcionalidad a un nivel de abstracción más alto. Por ejemplo, una capa de abstracción podría ocultar los detalles de cómo se almacenan y recuperan los datos en un sistema de archivos, permitiendo a los programas leer y escribir archivos utilizando una API sencilla. La capa de abstracción permite que los programadores se centren en su lógica de aplicación sin tener que preocuparse de los detalles de bajo nivel.</p>
@@ -410,9 +422,9 @@ document.write(`
 <p>Nextflow también tiene un sistema de manejo de errores robusto que permite reintentar la ejecución de una tarea si esta falla. Los datos intermedios se guardan, lo que permite reanudar un flujo de trabajo desde el punto en que se interrumpió.</p>
 <p>Una característica clave de Nextflow es su portabilidad, que se logra mediante la encapsulación de las tareas de un flujo de trabajo en contenedores (usando tecnologías como Docker o Singularity) que contienen todas las dependencias necesarias para ejecutar esa tarea. Nextflow permite la creación de pipelines de análisis de datos que pueden ejecutarse en una variedad de infraestructuras, incluyendo sistemas locales, clústeres de alto rendimiento (HPCs), y servicios de computación en la nube, como Google Cloud, Amazon Web Services (AWS) y Microsoft Azure.</p>
 <p>Nextflow también es compatible con Docker y Singularity, lo que permite encapsular el software y sus dependencias en contenedores que pueden ser fácilmente distribuidos y ejecutados en cualquier sistema. Esto facilita la reproducción de análisis bioinformáticos en diferentes entornos.</p>
-</div>
-<div class="section" id="viralrecon">
-<h1>viralrecon<a class="headerlink" href="#viralrecon" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="viralrecon">
+<h1>viralrecon<a class="headerlink" href="#viralrecon" title="Permalink to this heading">#</a></h1>
 <p>Ahora bien, viralrecon es un pipeline de bioinformática construido sobre Nextflow, que está diseñado para el análisis de secuencias de genomas virales. Este pipeline incluye una serie de etapas de análisis secuencial, desde el control de calidad de los datos de secuenciación hasta la anotación de variantes genéticas, el montaje de genomas y la análisis filogenéticos.</p>
 <p><img alt="Figura 5" src="https://github.com/nf-core/viralrecon/raw/master/docs/images/nf-core-viralrecon_logo_dark.png#gh-dark-mode-only" /></p>
 <p>Al igual que otros pipelines basados en Nextflow, viralrecon es altamente paralelizable y puede escalarse para procesar grandes cantidades de datos de secuenciación.</p>
@@ -423,7 +435,7 @@ document.write(`
 </div>
 <p><img alt="Figura 5" src="https://github.com/nf-core/viralrecon/raw/master/docs/images/nf-core-viralrecon_metro_map_illumina.png" /></p>
 <p>Para ejecutar viralrecon con nuestros datos de lecturas de SARS CoV2, vamos a ejecutar uno de los siguientes comandos:</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -488,7 +500,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -510,7 +522,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

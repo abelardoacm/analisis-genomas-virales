@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Buenas prácticas en Bash Scripting &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Debugging y solución de problemas en Bash Scripting" href="TallerBashScripting_04.html" />
     <link rel="prev" title="Conceptos clave en Bash Scripting:" href="TallerBashScripting_02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2FTallerBashScripting_03.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/TallerBashScripting_03.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -389,24 +401,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="buenas-practicas-en-bash-scripting">
-<h1>Buenas prácticas en Bash Scripting<a class="headerlink" href="#buenas-practicas-en-bash-scripting" title="Permalink to this headline">#</a></h1>
-<div class="section" id="comentarios-y-documentacion-de-scripts">
-<h2><strong>Comentarios y documentación de scripts</strong><a class="headerlink" href="#comentarios-y-documentacion-de-scripts" title="Permalink to this headline">#</a></h2>
+  <section id="buenas-practicas-en-bash-scripting">
+<h1>Buenas prácticas en Bash Scripting<a class="headerlink" href="#buenas-practicas-en-bash-scripting" title="Permalink to this heading">#</a></h1>
+<section id="comentarios-y-documentacion-de-scripts">
+<h2><strong>Comentarios y documentación de scripts</strong><a class="headerlink" href="#comentarios-y-documentacion-de-scripts" title="Permalink to this heading">#</a></h2>
 <p>Los comentarios son una parte integral de cualquier script y sirven para explicar lo que el código está haciendo. Los comentarios en los scripts de Bash se hacen utilizando el símbolo <code class="docutils literal notranslate"><span class="pre">#</span></code>. Todo lo que esté después de este símbolo en la misma línea será ignorado por el intérprete.</p>
 <p>También es una buena práctica documentar tu script al comienzo, proporcionando información como la descripción del script, los argumentos que necesita, cómo se usa, la fecha de creación, el autor y cualquier otra información relevante.</p>
-</div>
-<div class="section" id="como-estructurar-scripts-de-manera-eficiente-y-legible">
-<h2><strong>Cómo estructurar scripts de manera eficiente y legible</strong><a class="headerlink" href="#como-estructurar-scripts-de-manera-eficiente-y-legible" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="como-estructurar-scripts-de-manera-eficiente-y-legible">
+<h2><strong>Cómo estructurar scripts de manera eficiente y legible</strong><a class="headerlink" href="#como-estructurar-scripts-de-manera-eficiente-y-legible" title="Permalink to this heading">#</a></h2>
 <p>Para hacer que los scripts sean más legibles y eficientes, puedes:</p>
 <ol class="arabic simple">
 <li><p><strong>Usar indentación</strong>: Las estructuras de control como los bucles y las declaraciones if-then-else deben hacer uso de espacios vacíos al inicio de las líneas para identificar bloques de código de un mismo nivel jerárquico.</p></li>
 <li><p><strong>Evitar la repetición</strong>: Cuando varios bloques se repiten, seule ser mejor poner ese bloque en una función.</p></li>
 <li><p><strong>Nombres de variables significativos</strong>: Los nombres de las variables deben ser descriptivos de los datos que almacenan, dando pistas sobre su identidad y su relación con otras variables.</p></li>
 </ol>
-</div>
-<div class="section" id="seguridad-y-manejo-de-errores-en-scripts-de-bash">
-<h2><strong>Seguridad y manejo de errores en scripts de Bash</strong><a class="headerlink" href="#seguridad-y-manejo-de-errores-en-scripts-de-bash" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="seguridad-y-manejo-de-errores-en-scripts-de-bash">
+<h2><strong>Seguridad y manejo de errores en scripts de Bash</strong><a class="headerlink" href="#seguridad-y-manejo-de-errores-en-scripts-de-bash" title="Permalink to this heading">#</a></h2>
 <p>Esto cobra particular importancia cuando se trabaja con volúmenes grandes de información que puedan perderse o sobreescribirse, o con scripts que modificarán el sistema de alguna manera.</p>
 <ul class="simple">
 <li><p>Algunas prácticas recomendadas para la seguridad en Bash son:</p>
@@ -467,8 +479,8 @@ procesar_fastq<span class="o">()</span><span class="w"> </span><span class="o">{
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -533,7 +545,7 @@ procesar_fastq<span class="o">()</span><span class="w"> </span><span class="o">{
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -554,7 +566,7 @@ procesar_fastq<span class="o">()</span><span class="w"> </span><span class="o">{
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

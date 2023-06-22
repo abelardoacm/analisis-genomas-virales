@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>El periódico que explota &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="El ensamblaje del genoma como un problema computacional" href="de_novo_06.html" />
     <link rel="prev" title="SPAdes" href="de_novo_03.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_05.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/de_novo_05.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -390,25 +402,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="el-periodico-que-explota">
-<h1>El periódico que explota<a class="headerlink" href="#el-periodico-que-explota" title="Permalink to this headline">#</a></h1>
+  <section id="el-periodico-que-explota">
+<h1>El periódico que explota<a class="headerlink" href="#el-periodico-que-explota" title="Permalink to this heading">#</a></h1>
 <p>Imagina que apilamos cien copias de la edición del 27 de junio de 2000 del New York Times sobre una pila de dinamita y luego encendemos la mecha y estos explotan de manera caricaturesca en trozos diminutos. ¿Cómo podríamos usar los pequeños fragmentos de periódico para averiguar cuáles eran las noticias el 27 de junio de 2000? A este extraño enigma lo llamaremos el Problema del Periódico.</p>
 <p><img alt="Figura 2" src="_images/de_novo_01.png" /></p>
 <p>El Problema del Periódico es incluso más difícil de lo que parece. Debido a que teníamos varias copias de la misma edición del periódico y porque sin duda perdimos alguna información en la explosión, no podemos simplemente pegar una de las copias del periódico de la misma manera que armaríamos un rompecabezas.</p>
 <p>Pero, te preguntarás, ¿qué tienen que ver los periódicos explosivos con la biología? Determinar el orden de las bases en un genoma, o la secuenciación del genoma, presenta una tarea fundamental en la bioinformática… pero que se enfrenta a problemas mucho más difíciles.</p>
-</div>
-<div class="section" id="los-virus-mandan">
-<h1>¡Los virus mandan!<a class="headerlink" href="#los-virus-mandan" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="los-virus-mandan">
+<h1>¡Los virus mandan!<a class="headerlink" href="#los-virus-mandan" title="Permalink to this heading">#</a></h1>
 <p>El primer genoma secuenciado, perteneciente a un fago bacteriano φX174, tenía sólo 5,386 nucleótidos y fue completado en 1977 por Frederick Sanger. Cuatro décadas después de este descubrimiento galardonado con el Premio Nobel Debido a la disminución del costo de la secuenciación, ahora tenemos miles de genomas secuenciados.</p>
-</div>
-<div class="section" id="la-secuenciacion-y-el-ensamblaje">
-<h1>La secuenciación y el ensamblaje<a class="headerlink" href="#la-secuenciacion-y-el-ensamblaje" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="la-secuenciacion-y-el-ensamblaje">
+<h1>La secuenciación y el ensamblaje<a class="headerlink" href="#la-secuenciacion-y-el-ensamblaje" title="Permalink to this heading">#</a></h1>
 <p>El método tradicional para secuenciar genomas se describe de la siguiente manera. Tomamos una pequeña muestra con copias de material genético, utilizamos métodos bioquímicos para romper el DNA en fragmentos y luego secuenciamos estos fragmentos para producir lecturas.</p>
 <p><img alt="Figura 2" src="_images/de_novo_02.png" /></p>
 <p>La dificultad radica en que no ssabemos de dónde provienen las lecturas… igual al Problema del Periódico.</p>
 <p>Aunque los investigadores han secuenciado muchos genomas, un genoma gigante como el de <em><strong>Amoeba dubia</strong></em> aún está fuera del alcance de las tecnologías modernas de secuenciación. Podrías pensar que la barrera para secuenciar tal genoma sería experimental, pero eso no es cierto; los biólogos pueden generar fácilmente suficientes lecturas para analizar un genoma grande, pero el ensamblaje de estas lecturas sigue presentando un gran desafío computacional.</p>
 <p>Aunque… en el caso de los virus, las principales limitaciones suelen estar del lado experimental. Por ejemplo, el virus que provocó una de las últimas epidemias de hepatitis no ha podido ser secuenciado… de hecho, aún tenemos dudas sobre el tipo de arquitectura genómica que posee, si es (+)ssRNA (-)ssRNA o dsRNA.</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -473,7 +485,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -495,7 +507,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

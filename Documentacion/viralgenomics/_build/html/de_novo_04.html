@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Diseño de informe de calidad de ensambles &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -62,9 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_04';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introducción al Análisis de Calidad de Ensamble Genómicos" href="de_novo_09.html" />
     <link rel="prev" title="Pipelines" href="de_novo_08.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -179,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -237,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -254,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_04.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -275,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -284,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/de_novo_04.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -302,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -322,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -370,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -387,18 +400,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="diseno-de-informe-de-calidad-de-ensambles">
-<h1><strong>Diseño de informe de calidad de ensambles</strong><a class="headerlink" href="#diseno-de-informe-de-calidad-de-ensambles" title="Permalink to this headline">#</a></h1>
-<div class="section" id="importancia-de-evaluar-la-calidad-de-los-ensambles">
-<h2><strong>Importancia de evaluar la calidad de los ensambles</strong><a class="headerlink" href="#importancia-de-evaluar-la-calidad-de-los-ensambles" title="Permalink to this headline">#</a></h2>
+  <section id="diseno-de-informe-de-calidad-de-ensambles">
+<h1><strong>Diseño de informe de calidad de ensambles</strong><a class="headerlink" href="#diseno-de-informe-de-calidad-de-ensambles" title="Permalink to this heading">#</a></h1>
+<section id="importancia-de-evaluar-la-calidad-de-los-ensambles">
+<h2><strong>Importancia de evaluar la calidad de los ensambles</strong><a class="headerlink" href="#importancia-de-evaluar-la-calidad-de-los-ensambles" title="Permalink to this heading">#</a></h2>
 <p>El ensamblaje del genoma es una tarea computacionalmente compleja y a menudo desafiante debido a las características intrínsecas de los datos de secuenciación. Por lo tanto, es fundamental evaluar la calidad de los ensambles de genomas para asegurar la exactitud y la integridad de los datos generados.</p>
 <ul class="simple">
 <li><p><strong>Entendiendo tus datos</strong>: La evaluación de la calidad del ensamblado puede proporcionar información general que nos de buenos indicios de que el proceso fue satisfactorio, como el tamaño del genoma ensamblado, la cantidad de secuencias ensambladas, la longitud de los contigs y los scaffolds, y la profundidad de cobertura. Desafortunadamente, puede darse el caso de que no obtengamos buenos resultados, pero aprediendo de nuestros errores podremos planificar otros análisis.</p></li>
 <li><p><strong>Detección de problemas</strong>: La evaluación de la calidad del ensamblado puede ayudar a identificar problemas potenciales en el ensamblado, como contigs demasiado cortos, regiones del genoma mal ensambladas o completamente no ensambladas.</p></li>
 </ul>
-</div>
-<div class="section" id="como-evaluar-la-calidad-de-los-ensambles">
-<h2><strong>¿Cómo evaluar la calidad de los ensambles?</strong><a class="headerlink" href="#como-evaluar-la-calidad-de-los-ensambles" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="como-evaluar-la-calidad-de-los-ensambles">
+<h2><strong>¿Cómo evaluar la calidad de los ensambles?</strong><a class="headerlink" href="#como-evaluar-la-calidad-de-los-ensambles" title="Permalink to this heading">#</a></h2>
 <p>Existen varias estrategias para evaluar la calidad de los ensambles de genomas, y muchas herramientas disponibles para hacerlo. Algunas de las medidas más comunes utilizadas para evaluar la calidad del ensamblado incluyen:</p>
 <ul class="simple">
 <li><p><strong>Tamaño del genoma ensamblado</strong>: Esto debería ser razonablemente cercano al tamaño del genoma esperado.</p></li>
@@ -407,8 +420,8 @@ document.write(`
 <li><p><strong>Cobertura de lecturas</strong>: La cobertura de lecturas describe el número de veces que cada base en el genoma ha sido secuenciada. Una cobertura uniforme y suficientemente alta es importante para un buen ensamblado.</p></li>
 </ul>
 <p>Además de estas medidas, existen otras estrategias más avanzadas para evaluar la calidad de los ensambles, como la comparación con un genoma de referencia, el análisis de la coherencia del ensamblado con los datos de lecturas emparejadas, y la validación utilizando datos independientes.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -450,6 +463,15 @@ document.write(`
         <p class="prev-next-title">Pipelines</p>
       </div>
     </a>
+    <a class="right-next"
+       href="de_novo_09.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -464,7 +486,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -484,7 +506,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

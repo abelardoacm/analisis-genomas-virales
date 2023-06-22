@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Conceptos clave en Bash Scripting: &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Buenas prácticas en Bash Scripting" href="TallerBashScripting_03.html" />
     <link rel="prev" title="Introducción al Bash Scripting" href="TallerBashScripting_01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2FTallerBashScripting_02.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/TallerBashScripting_02.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -389,10 +401,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="conceptos-clave-en-bash-scripting">
-<h1>Conceptos clave en Bash Scripting:<a class="headerlink" href="#conceptos-clave-en-bash-scripting" title="Permalink to this headline">#</a></h1>
-<div class="section" id="variables-en-bash-scripting">
-<h2><strong>Variables en Bash scripting</strong><a class="headerlink" href="#variables-en-bash-scripting" title="Permalink to this headline">#</a></h2>
+  <section id="conceptos-clave-en-bash-scripting">
+<h1>Conceptos clave en Bash Scripting:<a class="headerlink" href="#conceptos-clave-en-bash-scripting" title="Permalink to this heading">#</a></h1>
+<section id="variables-en-bash-scripting">
+<h2><strong>Variables en Bash scripting</strong><a class="headerlink" href="#variables-en-bash-scripting" title="Permalink to this heading">#</a></h2>
 <p>Las variables son espacios de memoria que reservamos para almacenar valores. Puedes pensar en una variable como un contenedor o una etiqueta con un nombre. Estos nombres sin embargo tienen algunas reglas. En Bash son sensibles a las mayúsculas y minúsculas, y no pueden comenzar con un dígito. La sintáxis de asignación es similar a otros lenguajes, ya que usamos el operador <code class="docutils literal notranslate"><span class="pre">=</span></code>. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">x=10</span></code> asigna el valor 10 a la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>. Para referirse al valor de una variable, se utiliza el símbolo <code class="docutils literal notranslate"><span class="pre">$</span></code>. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$x</span></code> imprimirá el valor de <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -425,9 +437,9 @@ document.write(`
 <p>La tercera opción funcionará correctamente, pero es algo ilegible</p>
 <p>La cuarta opción, si bien más larga, es más explícita, más legible y menos susceptible a errores sintácticos</p>
 </div>
-</div>
-<div class="section" id="uso-de-estructuras-de-control-y-bucles">
-<h2><strong>Uso de estructuras de control y bucles</strong><a class="headerlink" href="#uso-de-estructuras-de-control-y-bucles" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="uso-de-estructuras-de-control-y-bucles">
+<h2><strong>Uso de estructuras de control y bucles</strong><a class="headerlink" href="#uso-de-estructuras-de-control-y-bucles" title="Permalink to this heading">#</a></h2>
 <p>Los bucles y las estructuras de control permiten ejecutar bloques de código de forma condicional o repetitiva. La estructura <code class="docutils literal notranslate"><span class="pre">if-else</span></code> permite ejecutar bloques de código si se cumple una determinada condición. Por ejemplo, al ejecutar:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">x</span><span class="o">=</span><span class="m">8</span>
 </pre></div>
@@ -476,9 +488,9 @@ document.write(`
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="conceptos-de-entrada-y-salida-estandar-stdin-stdout-stderr-y-como-se-redirigen">
-<h2><strong>Conceptos de entrada y salida estándar (stdin, stdout, stderr) y cómo se redirigen</strong><a class="headerlink" href="#conceptos-de-entrada-y-salida-estandar-stdin-stdout-stderr-y-como-se-redirigen" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="conceptos-de-entrada-y-salida-estandar-stdin-stdout-stderr-y-como-se-redirigen">
+<h2><strong>Conceptos de entrada y salida estándar (stdin, stdout, stderr) y cómo se redirigen</strong><a class="headerlink" href="#conceptos-de-entrada-y-salida-estandar-stdin-stdout-stderr-y-como-se-redirigen" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> y <code class="docutils literal notranslate"><span class="pre">stderr</span></code> son los tres flujos de datos que todo proceso en un sistema <em><strong>Unix</strong></em> tiene por defecto.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stdin</span></code> (entrada estándar) es el flujo desde el que el proceso lee su entrada.</p></li>
@@ -517,8 +529,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Este script recorrerá todos los archivos FASTQ en el directorio especificado y ejecutará los comandos dentro del for loop uno a la vez.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -583,7 +595,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -604,7 +616,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

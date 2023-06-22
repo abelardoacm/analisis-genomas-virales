@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>SPAdes &#8212; Analisis de genomas virales</title>
+    <title>Introducción al Análisis de Calidad de Ensamble Genómicos &#8212; Analisis de genomas virales</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_03';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_09';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="El periódico que explota" href="de_novo_05.html" />
-    <link rel="prev" title="SKESA" href="de_novo_02.html" />
+    <link rel="next" title="Metagenómica" href="meta_01.html" />
+    <link rel="prev" title="Diseño de informe de calidad de ensambles" href="de_novo_04.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_05.html">El periódico que explota</a></li>
 
 
@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
 
 
 
@@ -265,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_03.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_09.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/de_novo_03.md" target="_blank"
+      <li><a href="_sources/de_novo_09.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>SPAdes</h1>
+    <h1>Introducción al Análisis de Calidad de Ensamble Genómicos</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,17 +387,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-y-metricas-para-la-evaluacion-de-la-calidad-de-ensamblajes"><strong>Parámetros y Métricas para la Evaluación de la Calidad de Ensamblajes</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-quast-quality-assessment-tool-for-genome-assemblies"><strong>Introducción a QUAST: Quality Assessment Tool for Genome Assemblies</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-calidad-del-ensamble-utilizando-quast"><strong>Análisis de calidad del ensamble utilizando QUAST</strong></a></li>
 </ul>
-</li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -408,72 +403,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="spades">
-<h1><strong>SPAdes</strong><a class="headerlink" href="#spades" title="Permalink to this heading">#</a></h1>
-<section id="introduccion-a-spades">
-<h2><strong>Introducción a SPAdes</strong><a class="headerlink" href="#introduccion-a-spades" title="Permalink to this heading">#</a></h2>
-<p>SPAdes (St. Petersburg genome assembler) es un programa de software que se utiliza para el ensamble de novo de genomas bacterianos, aunque también ha demostrado ser efectivo en el ensamble de genomas virales con alta variabilidad. Trabaja tanto con lecturas de secuenciación de longitud corta (como las generadas por Illumina) como con lecturas de longitud media a larga (como las generadas por PacBio o Oxford Nanopore).</p>
-<p>SPAdes se basa en algoritmos de ensamble de novo que utilizan una combinación de técnicas, incluyendo <em><strong>De Bruijn Graphs</strong></em>  y técnicas de mapeo de lecturas.</p>
-<p>SPAdes tiene una amplia gama de opciones y parámetros que se pueden ajustar para optimizar los resultados del ensamble. Por ejemplo, SPAdes puede realizar ensamblajes híbridos utilizando tanto lecturas de secuenciación de longitud corta como de longitud larga, lo que permite aprovechar las ventajas de ambos tipos de datos.</p>
+  <section id="introduccion-al-analisis-de-calidad-de-ensamble-genomicos">
+<h1><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong><a class="headerlink" href="#introduccion-al-analisis-de-calidad-de-ensamble-genomicos" title="Permalink to this heading">#</a></h1>
+<p><strong>1. Importancia de la Evaluación de Calidad en los Ensamblajes Genómicos</strong></p>
+<p>El ensamblaje genómico puede ser propenso a errores y desafíos, incluyendo la presencia de regiones repetitivas, errores de secuenciación y sesgos de cobertura. Por lo tanto, es vital realizar una evaluación de la calidad del ensamblaje para asegurar la fiabilidad y exactitud de los datos obtenidos.</p>
+<p>La evaluación de calidad revela aspectos como la integridad, la continuidad y la precisión del ensamblaje. A través de esta evaluación, podemos identificar potenciales problemas que podrían afectar a los análisis posteriores.</p>
+<p><strong>2. Impacto de la Calidad del Ensamblaje en los Estudios Genómicos Virales</strong></p>
+<p>Tomemos el ejemplo del SARS-CoV-2, el virus que causa la COVID-19. El ensamblaje del genoma de SARS-CoV-2 ha jugado un papel crucial en nuestra comprensión del virus. La información genómica obtenida a partir del ensamblaje de alta calidad ha permitido a los investigadores rastrear la propagación y evolución del virus, identificar variantes de importancia, y desarrollar pruebas de diagnóstico y estrategias de vacunación.</p>
+<p>Sin embargo, si la calidad del ensamblaje es pobre, esto puede dar lugar a una interpretación errónea de los datos genómicos. Los errores en el ensamblaje pueden resultar en la falta de detección de variantes genéticas, la identificación incorrecta de genes y funciones virales, y una visión distorsionada de la evolución viral. Estos problemas pueden tener graves repercusiones, desde conclusiones científicas erróneas hasta estrategias de control de enfermedades ineficientes.</p>
 </section>
-<section id="etapas-de-spades">
-<h2><strong>Etapas de SPAdes</strong><a class="headerlink" href="#etapas-de-spades" title="Permalink to this heading">#</a></h2>
+<section id="parametros-y-metricas-para-la-evaluacion-de-la-calidad-de-ensamblajes">
+<h1><strong>Parámetros y Métricas para la Evaluación de la Calidad de Ensamblajes</strong><a class="headerlink" href="#parametros-y-metricas-para-la-evaluacion-de-la-calidad-de-ensamblajes" title="Permalink to this heading">#</a></h1>
+<p><strong>1. Número de Contigs</strong></p>
+<p>El número de contigs en un ensamble es una medida básica pero fundamental de la continuidad del genoma. En general, un ensamble con menos contigs es deseable ya que sugiere que las secuencias del genoma se han ensamblado en fragmentos más largos y continuos. Un número alto de contigs puede indicar un ensamble fragmentado.</p>
+<p><strong>2. Tamaño Total del Ensamble</strong></p>
+<p>El tamaño total del ensamble es la longitud acumulada de todos los contigs. Idealmente, este valor debe estar cerca del tamaño esperado del genoma. En el caso de SARS-CoV-2, el tamaño del genoma es aproximadamente 30,000 bases.</p>
+<p><strong>3. Tamaño del Contig más Largo</strong></p>
+<p>El tamaño del contig más largo es otra métrica de la continuidad del ensamble. Un contig largo puede representar una región genómica completa, lo que facilita el análisis genómico. En el caso de SARS-CoV-2, dado que es un genoma de tamaño relativamente pequeño, un ensamble de alta calidad podría tener un contig más largo que abarque todo el genoma.</p>
+<p><strong>4. N50 y L50</strong></p>
+<p>N50 es una estadística comúnmente utilizada para evaluar la calidad del ensamble. Se define como la longitud mínima de los contigs para los cuales la suma de las longitudes es al menos el 50% del tamaño total del ensamble. Un N50 mayor indica un ensamble más continuo. L50 es el número mínimo de contigs cuyas longitudes sumadas componen el N50. Juntas, estas métricas dan una visión de la continuidad y la fragmentación del ensamble.</p>
+<p><strong>5. Contenido GC</strong></p>
+<p>El contenido de guanina y citosina (GC) es una medida del porcentaje de bases en el genoma que son G o C. Diferentes organismos tienen diferentes contenidos de GC, y este parámetro puede ser útil para identificar anomalías o contaminantes. Por ejemplo, el contenido GC del SARS-CoV-2 es alrededor del 38%. Si se observa un contenido GC muy diferente en el ensamble, puede sugerir la presencia de contaminación.</p>
+<p><strong>6. Complejidad Genómica: Profundidad de Cobertura y Contenido Repetitivo</strong></p>
+<p>La profundidad de cobertura se refiere al número promedio de lecturas que cubren una base particular en el genoma. Una profundidad de cobertura adecuada es importante para un ensamble preciso y para la detección de variantes.</p>
+</section>
+<section id="introduccion-a-quast-quality-assessment-tool-for-genome-assemblies">
+<h1><strong>Introducción a QUAST: Quality Assessment Tool for Genome Assemblies</strong><a class="headerlink" href="#introduccion-a-quast-quality-assessment-tool-for-genome-assemblies" title="Permalink to this heading">#</a></h1>
+<p><strong>1. Descripción general de QUAST y sus capacidades</strong></p>
+<p>QUAST (Quality Assessment Tool for Genome Assemblies) es una herramienta ampliamente utilizada en la evaluación de la calidad de los ensambles genómicos. Proporciona una serie de estadísticas y gráficos que permiten una evaluación detallada de la calidad del ensamble y una comparación entre diferentes ensambles.</p>
+<p>Esta herramienta automatiza el proceso de cálculo de métricas y estadísticas importantes, lo que facilita la evaluación objetiva de los ensambles y ahorra tiempo en comparación con el análisis manual.</p>
+<p><strong>2. Interpretación de las estadísticas proporcionadas por QUAST</strong></p>
+<p>QUAST genera una amplia gama de estadísticas y gráficos que brindan información detallada sobre la calidad del ensamble. Algunas de las estadísticas más importantes que se pueden obtener de QUAST incluyen:</p>
 <ul class="simple">
-<li><p><strong>Creación de gráficos de De Bruijn:</strong> Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.</p></li>
-<li><p><strong>Simplificación del gráfico:</strong> SPAdes simplifica el gráfico de De Bruijn para reducir la complejidad del problema de ensamble.</p>
-<ol class="arabic simple">
-<li><p>Eliminación de puntas: Las puntas son pequeñas ramas en el grafo que generalmente se deben a errores de secuenciación. Al eliminar estas puntas, SPAdes puede reducir el ruido en el grafo.</p></li>
-<li><p>Fusión de bulbos: Los bulbos son estructuras en el grafo que se forman debido a variaciones menores en la secuencia. Al fusionar estos bulbos en una sola ruta, SPAdes puede reducir la complejidad del grafo.</p></li>
-<li><p>Compresión de caminos: Cuando hay una serie de nodos en el grafo que todos tienen un solo predecesor y un solo sucesor, pueden comprimirse en un solo nodo. Esto puede reducir significativamente el tamaño del grafo.</p></li>
-<li><p>Resolución de repeticiones: Las repeticiones son secuencias que aparecen más de una vez en el genoma y pueden causar problemas en el ensamblaje ya que crean múltiples rutas posibles a través del grafo. SPAdes utiliza varias técnicas para tratar de resolver estas repeticiones y elegir la ruta más probable.</p></li>
-</ol>
-</li>
-<li><p><strong>Ensamblaje del genoma:</strong> Finalmente, SPAdes utiliza el gráfico de De Bruijn simplificado para generar los contigs del ensamble. Este proceso implica la identificación de caminos a través del gráfico que representan secuencias genómicas probables.</p></li>
+<li><p>Número de contigs</p></li>
+<li><p>Tamaño total del ensamble</p></li>
+<li><p>Tamaño del contig más largo</p></li>
+<li><p>N50 y L50</p></li>
+<li><p>Estadísticas de alineamiento</p></li>
+<li><p>Contenido GC</p></li>
+<li><p>Estadísticas de duplicación</p></li>
 </ul>
-<p>Es importante destacar que SPAdes utiliza un enfoque multi-k-mer en el que se crean y procesan varios gráficos de De Bruijn con diferentes valores de k. Esto permite a SPAdes manejar más efectivamente las variaciones en la cobertura de secuenciación y las regiones repetitivas en el genoma.</p>
+<p><strong>3. Cómo QUAST puede ayudar en la optimización de futuros ensambles</strong></p>
+<p>Una de las ventajas clave de QUAST es su capacidad para comparar diferentes ensambles. Esto permite evaluar la calidad relativa de los ensambles generados utilizando diferentes herramientas o parámetros de ensamblaje.</p>
+<p>Al comparar diferentes ensambles, QUAST proporciona estadísticas que permiten identificar las fortalezas y debilidades de cada ensamble. Esto puede ser útil para guiar la optimización de futuros ensambles, ya sea ajustando los parámetros de las herramientas de ensamblaje utilizadas o mejorando las estrategias de preprocesamiento de datos.</p>
 </section>
-<section id="practica-uso-de-spades-para-el-ensamblaje-de-novo">
-<h2><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong><a class="headerlink" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo" title="Permalink to this heading">#</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DETOUR: Como muchas herramientas bioinformáticas, para instalarlas en nuestras computadoras personales podemos recurrir a conda Si necesitas instalar SPAdes en tu computadora, podrás hacerlo con el siguiente comando: `$ conda install -c bioconda spades`
+<section id="analisis-de-calidad-del-ensamble-utilizando-quast">
+<h1><strong>Análisis de calidad del ensamble utilizando QUAST</strong><a class="headerlink" href="#analisis-de-calidad-del-ensamble-utilizando-quast" title="Permalink to this heading">#</a></h1>
+<p><strong>Instalación y configuración de QUAST</strong></p>
+<p>Antes de comenzar con el análisis de calidad del ensamble, es necesario instalar y configurar QUAST en el entorno de trabajo. Asegúrate de que los alumnos tengan acceso a una versión adecuada de QUAST y que todas las dependencias necesarias estén instaladas.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalación de QUAST utilizando pip</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">quast</span>
+
+<span class="c1"># Verificación de la instalación y versión de QUAST</span>
+<span class="n">quast</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
-<p>Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que tenemos muestras pareadas, simplemente tenemos que usar ambos archivos como argumento e indicar el directorio de salida. Pero antes…</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.</p>
-</div>
-<p>Ejecutaremos el siguiente comando para la muestra 1, recuerda ajustar las rutas:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>./spades_out/
+<p><strong>Ejecución de QUAST y generación de los informes de calidad</strong></p>
+<p>El siguiente codigo generará los informes de calidad del ensamble:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecución de QUAST en los archivos obtenidos hasta ahora</span>
+<span class="n">quast</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="n">outdir</span> <span class="n">contigs1</span><span class="o">.</span><span class="n">fasta</span> <span class="n">contigs2</span><span class="o">.</span><span class="n">fasta</span> <span class="n">contigs3</span><span class="o">.</span><span class="n">fasta</span>
 </pre></div>
 </div>
-</section>
-<section id="interpretacion-de-los-resultados-de-spades">
-<h2>** Interpretación de los resultados de SPAdes**<a class="headerlink" href="#interpretacion-de-los-resultados-de-spades" title="Permalink to this heading">#</a></h2>
-<p>Después de ejecutar SPAdes, se generará un directorio de salida (que especificaste con la opción <code class="docutils literal notranslate"><span class="pre">-o</span></code> en el comando de SPAdes). Dentro de este directorio, encontrarás una serie de archivos y subdirectorios que contienen los resultados del ensamblaje de SPAdes.</p>
-<section id="contigs-fasta-y-scaffolds-fasta">
-<h3>1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code><a class="headerlink" href="#contigs-fasta-y-scaffolds-fasta" title="Permalink to this heading">#</a></h3>
-<p>Estos dos archivos contienen los contigüidades (contigs) y ensambles finales (scaffolds) resultantes del ensamblaje.</p>
-<ul class="simple">
-<li><p>Los <code class="docutils literal notranslate"><span class="pre">contigs</span></code> son secuencias que SPAdes ha ensamblado a partir de las lecturas. Son los bloques de construcción básicos del genoma.</p></li>
-<li><p>Los <code class="docutils literal notranslate"><span class="pre">scaffolds</span></code> son conjuntos de contigs que se han unido con la ayuda de las lecturas pareadas. Los scaffolds pueden contener regiones de “N” que representan gaps o regiones desconocidas entre los contigs.</p></li>
-</ul>
-</section>
-<section id="spades-log">
-<h3>2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code><a class="headerlink" href="#spades-log" title="Permalink to this heading">#</a></h3>
-<p>Este archivo contiene el registro de la ejecución de SPAdes. Proporciona información detallada sobre cada etapa del proceso de ensamblaje.</p>
-</section>
-<section id="carpeta-kxx">
-<h3>3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code><a class="headerlink" href="#carpeta-kxx" title="Permalink to this heading">#</a></h3>
-<p>Esta carpeta contiene los resultados intermedios de las distintas etapas del ensamblaje. SPAdes realiza múltiples iteraciones de ensamblaje utilizando diferentes longitudes de k-mers. Cada una de estas iteraciones tiene su propia carpeta, llamada <code class="docutils literal notranslate"><span class="pre">KXX</span></code>, donde <code class="docutils literal notranslate"><span class="pre">XX</span></code> es la longitud del k-mer utilizado.</p>
-</section>
-<section id="params-txt">
-<h3>4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code><a class="headerlink" href="#params-txt" title="Permalink to this heading">#</a></h3>
-<p>Este archivo muestra los parámetros y opciones que se utilizaron para ejecutar SPAdes.</p>
-<hr class="docutils" />
-<p>Para interpretar los resultados de SPAdes, podríamos comenzar por revisar los archivos <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code>,contar el número de contigs/scaffolds, y también puedes calcular su longitud total y la longitud del contig o scaffold más largo.</p>
-<p>Un análisis más detallado requerirá herramientas bioinformáticas adicionales. Por ejemplo, podrías utilizar BLAST para comparar tus contigs o scaffolds con secuencias de referencia conocidas, o podrías utilizar una herramienta de visualización de genomas como Bandage para examinar visualmente el grafo de ensamblaje.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -508,20 +498,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="de_novo_02.html"
+       href="de_novo_04.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>SKESA</strong></p>
+        <p class="prev-next-title"><strong>Diseño de informe de calidad de ensambles</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="de_novo_05.html"
+       href="meta_01.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">El periódico que explota</p>
+        <p class="prev-next-title"><strong>Metagenómica</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -543,17 +533,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-y-metricas-para-la-evaluacion-de-la-calidad-de-ensamblajes"><strong>Parámetros y Métricas para la Evaluación de la Calidad de Ensamblajes</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-quast-quality-assessment-tool-for-genome-assemblies"><strong>Introducción a QUAST: Quality Assessment Tool for Genome Assemblies</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-calidad-del-ensamble-utilizando-quast"><strong>Análisis de calidad del ensamble utilizando QUAST</strong></a></li>
 </ul>
-</li>
-</ul>
+
   </nav></div>
 
 </div></div>

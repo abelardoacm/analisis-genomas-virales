@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Introducción al ensamble de novo &#8212; Analisis de genomas virales</title>
   
   
@@ -43,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="SKESA" href="de_novo_02.html" />
     <link rel="prev" title="Ensamble de novo" href="de_novo_00.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -180,6 +182,16 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="de_novo_04.html"><strong>Diseño de informe de calidad de ensambles</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_09.html"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
+
+
 </ul>
 </li>
 </ul>
@@ -238,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repositorio de origen"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -255,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_01.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Abrir un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -276,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -285,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/de_novo_01.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Descargar archivo fuente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -303,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Imprimir en PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -323,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modo de pantalla completa"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -371,7 +383,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contenido </h2>
+                <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -394,10 +406,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="introduccion-al-ensamble-de-novo">
-<h1>Introducción al ensamble de novo<a class="headerlink" href="#introduccion-al-ensamble-de-novo" title="Permalink to this headline">#</a></h1>
-<div class="section" id="definicion-y-relevancia-del-ensamble-de-novo">
-<h2><strong>Definición y relevancia del ensamble de novo</strong><a class="headerlink" href="#definicion-y-relevancia-del-ensamble-de-novo" title="Permalink to this headline">#</a></h2>
+  <section id="introduccion-al-ensamble-de-novo">
+<h1>Introducción al ensamble de novo<a class="headerlink" href="#introduccion-al-ensamble-de-novo" title="Permalink to this heading">#</a></h1>
+<section id="definicion-y-relevancia-del-ensamble-de-novo">
+<h2><strong>Definición y relevancia del ensamble de novo</strong><a class="headerlink" href="#definicion-y-relevancia-del-ensamble-de-novo" title="Permalink to this heading">#</a></h2>
 <p>El ensamble de novo se refiere al proceso de ensamblar fragmentos de DNA/RNA provenientes de las lecturas de la secuenciación, en una secuencia completa o parcialmente completa SIN la ayuda de una secuencia de referencia.</p>
 <p>En otras palabras, el ensamble de novo es como reconstruir el las notas de un periódico que explotó.</p>
 <p>Este proceso nos permite descubrir nuevos genomas, identificar variantes estructurales y analizar linajes poco conocidos para los cuales no hay secuencias de referencia disponibles. El ensamble de novo es particularmente útil cuando se secuencian nuevos organismos o se estudian comunidades complejas, donde se desconoce la mayoría de las secuencias genómicas, como es el caso frecuentemente para los virus.</p>
@@ -407,28 +419,28 @@ document.write(`
 <li><p><strong>Descubrimiento de nuevos virus</strong>: Es posible descubrir nuevos virus o variantes.</p></li>
 <li><p><strong>Estudio de la recombinación/segmentación</strong>: Como lo exploramos anteriormente, los virus de algunos linajes suelen recombinarse o segmentarse, incluso como parte de algunas estrategias para la infección. Estos fenómenos muy particulares de los virus y elementos genéticos móviles retan la utilidad de las secuencias de referencia, no solo por la identidad a nivel de los nucleótidos, sino también hablando de la sintenia de los genes.</p></li>
 </ul>
-</div>
-<div class="section" id="breve-historia-de-los-algoritmos-de-ensamble">
-<h2><strong>Breve historia de los algoritmos de ensamble</strong><a class="headerlink" href="#breve-historia-de-los-algoritmos-de-ensamble" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="breve-historia-de-los-algoritmos-de-ensamble">
+<h2><strong>Breve historia de los algoritmos de ensamble</strong><a class="headerlink" href="#breve-historia-de-los-algoritmos-de-ensamble" title="Permalink to this heading">#</a></h2>
 <p>El ensamble de novo ha sido una parte fundamental de la bioinformática y la genómica durante varias décadas, y los algoritmos y técnicas han cambiado y evolucionado significativamente a lo largo de los años.</p>
-<div class="section" id="primeros-algoritmos">
-<h3><strong>Primeros algoritmos</strong><a class="headerlink" href="#primeros-algoritmos" title="Permalink to this headline">#</a></h3>
+<section id="primeros-algoritmos">
+<h3><strong>Primeros algoritmos</strong><a class="headerlink" href="#primeros-algoritmos" title="Permalink to this heading">#</a></h3>
 <p>Los primeros algoritmos de ensamble surgieron en la década de 1980 con los primeros esfuerzos para secuenciar genomas completos. Los métodos de secuenciación de la época producían lecturas de secuencias relativamente largas, pero en cantidades limitadas.</p>
 <p>Algoritmos como Phrap o TIGR assembler, se basaban en la idea de solapar las lecturas y utilizar estos solapamientos para unir las lecturas en contiguos más largos.</p>
-</div>
-<div class="section" id="aparicion-de-la-secuenciacion-de-nueva-generacion-ngs">
-<h3><strong>Aparición de la secuenciación de nueva generación (NGS)</strong><a class="headerlink" href="#aparicion-de-la-secuenciacion-de-nueva-generacion-ngs" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="aparicion-de-la-secuenciacion-de-nueva-generacion-ngs">
+<h3><strong>Aparición de la secuenciación de nueva generación (NGS)</strong><a class="headerlink" href="#aparicion-de-la-secuenciacion-de-nueva-generacion-ngs" title="Permalink to this heading">#</a></h3>
 <p>Con la introducción de la secuenciación de nueva generación (NGS) a mediados de la década de 2000, el panorama cambió dramáticamente. Los métodos NGS podían generar millones de lecturas cortas (de unos pocos cientos de pares de bases) en un solo experimento. Este aumento en el volumen de datos creó nuevos desafíos para los algoritmos de ensamble, ya que los métodos existentes no eran adecuados para manejar la gran cantidad de datos producidos por las tecnologías NGS.</p>
 <p>En respuesta a estos desafíos, se desarrollaron nuevos algoritmos que utilizaban los <em><strong>grafos de De Bruijn</strong></em> para ensamblar genomas a partir de lecturas cortas. Los gráficos de De Bruijn representan las relaciones entre las secuencias de lectura en términos de k-mers (secuencias de longitud k), lo que permite un enfoque más eficiente para el ensamble de lecturas cortas.</p>
 <p>Los primeros algoritmos de gráficos de De Bruijn, como Velvet, ABySS y SOAPdenovo, permitieron el ensamble de genomas mucho más grandes y complejos.</p>
-</div>
-<div class="section" id="secuenciacion-de-tercera-generacion">
-<h3><strong>Secuenciación de tercera generación</strong><a class="headerlink" href="#secuenciacion-de-tercera-generacion" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="secuenciacion-de-tercera-generacion">
+<h3><strong>Secuenciación de tercera generación</strong><a class="headerlink" href="#secuenciacion-de-tercera-generacion" title="Permalink to this heading">#</a></h3>
 <p>Recientemente, la aparición de la secuenciación de tercera generación, que produce lecturas de secuencias mucho más largas (de decenas de miles a cientos de miles de pares de bases), ha dado lugar a toda una nueva generación de algoritmos de ensamble. Estos algoritmos están diseñados para lidiar con enormes volúmenes de información.</p>
-</div>
-</div>
-<div class="section" id="principales-desafios-del-ensamble-de-novo">
-<h2><strong>Principales desafíos del ensamble de novo</strong><a class="headerlink" href="#principales-desafios-del-ensamble-de-novo" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="principales-desafios-del-ensamble-de-novo">
+<h2><strong>Principales desafíos del ensamble de novo</strong><a class="headerlink" href="#principales-desafios-del-ensamble-de-novo" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Complejidad y tamaño del genoma:</strong> En general, cuanto más grande y complejo es el genoma, más difícil es ensamblarlo de novo. Los genomas con una gran cantidad de repeticiones largas, duplicaciones y regiones de baja complejidad son particularmente desafiantes.</p>
 <ul>
@@ -447,8 +459,8 @@ document.write(`
 </ul>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -513,7 +525,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
+    <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -539,7 +551,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por ATGenomics
+By ATGenomics
 </p>
 
   </div>

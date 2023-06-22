@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>SPAdes &#8212; Analisis de genomas virales</title>
+    <title>Metagenómica &#8212; Analisis de genomas virales</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'de_novo_03';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'meta_01';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="El periódico que explota" href="de_novo_05.html" />
-    <link rel="prev" title="SKESA" href="de_novo_02.html" />
+    <link rel="next" title="Asignación taxonómica" href="meta_02.html" />
+    <link rel="prev" title="Introducción al Análisis de Calidad de Ensamble Genómicos" href="de_novo_09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,10 +166,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="TallerBashScripting_06.html">Control de calidad de lecturas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="de_novo_00.html">Ensamble <em>de novo</em></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_01.html">Introducción al ensamble de novo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_02.html"><strong>SKESA</strong></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SPAdes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="de_novo_03.html"><strong>SPAdes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="de_novo_05.html">El periódico que explota</a></li>
 
 
@@ -188,7 +188,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="meta_01.html"><strong>Metagenómica</strong></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#"><strong>Metagenómica</strong></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="meta_02.html"><strong>Asignación taxonómica</strong></a></li>
 
 
@@ -265,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fde_novo_03.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/abelardoacm/analisis-genomas-virales/issues/new?title=Issue%20on%20page%20%2Fmeta_01.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/de_novo_03.md" target="_blank"
+      <li><a href="_sources/meta_01.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,9 +364,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -377,28 +375,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>SPAdes</h1>
+    <h1>Metagenómica</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -408,72 +389,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="spades">
-<h1><strong>SPAdes</strong><a class="headerlink" href="#spades" title="Permalink to this heading">#</a></h1>
-<section id="introduccion-a-spades">
-<h2><strong>Introducción a SPAdes</strong><a class="headerlink" href="#introduccion-a-spades" title="Permalink to this heading">#</a></h2>
-<p>SPAdes (St. Petersburg genome assembler) es un programa de software que se utiliza para el ensamble de novo de genomas bacterianos, aunque también ha demostrado ser efectivo en el ensamble de genomas virales con alta variabilidad. Trabaja tanto con lecturas de secuenciación de longitud corta (como las generadas por Illumina) como con lecturas de longitud media a larga (como las generadas por PacBio o Oxford Nanopore).</p>
-<p>SPAdes se basa en algoritmos de ensamble de novo que utilizan una combinación de técnicas, incluyendo <em><strong>De Bruijn Graphs</strong></em>  y técnicas de mapeo de lecturas.</p>
-<p>SPAdes tiene una amplia gama de opciones y parámetros que se pueden ajustar para optimizar los resultados del ensamble. Por ejemplo, SPAdes puede realizar ensamblajes híbridos utilizando tanto lecturas de secuenciación de longitud corta como de longitud larga, lo que permite aprovechar las ventajas de ambos tipos de datos.</p>
-</section>
-<section id="etapas-de-spades">
-<h2><strong>Etapas de SPAdes</strong><a class="headerlink" href="#etapas-de-spades" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Creación de gráficos de De Bruijn:</strong> Para generar el gráfico de De Bruijn, SPAdes primero descompone las lecturas de secuenciación en k-mers y luego construye el gráfico de De Bruijn a partir de estos k-mers.</p></li>
-<li><p><strong>Simplificación del gráfico:</strong> SPAdes simplifica el gráfico de De Bruijn para reducir la complejidad del problema de ensamble.</p>
-<ol class="arabic simple">
-<li><p>Eliminación de puntas: Las puntas son pequeñas ramas en el grafo que generalmente se deben a errores de secuenciación. Al eliminar estas puntas, SPAdes puede reducir el ruido en el grafo.</p></li>
-<li><p>Fusión de bulbos: Los bulbos son estructuras en el grafo que se forman debido a variaciones menores en la secuencia. Al fusionar estos bulbos en una sola ruta, SPAdes puede reducir la complejidad del grafo.</p></li>
-<li><p>Compresión de caminos: Cuando hay una serie de nodos en el grafo que todos tienen un solo predecesor y un solo sucesor, pueden comprimirse en un solo nodo. Esto puede reducir significativamente el tamaño del grafo.</p></li>
-<li><p>Resolución de repeticiones: Las repeticiones son secuencias que aparecen más de una vez en el genoma y pueden causar problemas en el ensamblaje ya que crean múltiples rutas posibles a través del grafo. SPAdes utiliza varias técnicas para tratar de resolver estas repeticiones y elegir la ruta más probable.</p></li>
-</ol>
-</li>
-<li><p><strong>Ensamblaje del genoma:</strong> Finalmente, SPAdes utiliza el gráfico de De Bruijn simplificado para generar los contigs del ensamble. Este proceso implica la identificación de caminos a través del gráfico que representan secuencias genómicas probables.</p></li>
-</ul>
-<p>Es importante destacar que SPAdes utiliza un enfoque multi-k-mer en el que se crean y procesan varios gráficos de De Bruijn con diferentes valores de k. Esto permite a SPAdes manejar más efectivamente las variaciones en la cobertura de secuenciación y las regiones repetitivas en el genoma.</p>
-</section>
-<section id="practica-uso-de-spades-para-el-ensamblaje-de-novo">
-<h2><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong><a class="headerlink" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo" title="Permalink to this heading">#</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DETOUR: Como muchas herramientas bioinformáticas, para instalarlas en nuestras computadoras personales podemos recurrir a conda Si necesitas instalar SPAdes en tu computadora, podrás hacerlo con el siguiente comando: `$ conda install -c bioconda spades`
-</pre></div>
+  <section id="metagenomica">
+<h1><strong>Metagenómica</strong><a class="headerlink" href="#metagenomica" title="Permalink to this heading">#</a></h1>
+<p>La metagenómica se enfoca en el estudio del material genético presente en muestras “inespecíficas”, ya sea ambientales, como suelos, agua, aire y también en muestras biológicas, como el tracto intestinal humano. A diferencia de la genómica tradicional, que se centra en el análisis de los genomas de organismos individuales, la metagenómica examina el conjunto de genes y secuencias genéticas presentes en una comunidad compleja.</p>
+<p>La metagenómica viral es una rama especializada de la metagenómica que se enfoca en el estudio de los virus presentes en una muestra. La metagenómica viral permite el análisis y la caracterización de la diversidad genética de los virus presentes en una muestra, incluso aquellos que son difíciles de cultivar en laboratorio.</p>
+<p>Las herramientas metagenómicas permiten identificar nuevos virus, comprender su papel en la salud, investigar interacciones microbianas y descubrir posibles aplicaciones biotecnológicas.</p>
+<p><strong>Una gran cantidad de virus sólo han sido conocidos a través de la metagenómica</strong>.</p>
+<p><img alt="Figura 1" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41545-019-0032-3/MediaObjects/41545_2019_32_Fig1_HTML.png" /></p>
+<div class="toctree-wrapper compound">
 </div>
-<p>Una vez instalado, la ejecución de SPAdes es sencilla. En nuestro caso, que tenemos muestras pareadas, simplemente tenemos que usar ambos archivos como argumento e indicar el directorio de salida. Pero antes…</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>PREGUNTA: Supón que nuestro objetivo último es lograr secuenciar y ensamblar de novo el genoma de SARS CoV-2, y al equipo de bioinformática llegan dos tipos de muestras. En el primero el proceso experimental simplemente consistió en aislamiento de material genético, amplificación y secuenciación. El segundo consistió en lo mismo, excepto que con una eficiente metodología para amplificar selectiva y drásticamente el material genético, únicamente de nuestro virus de interés. ¿Cómo podría impactar ello en el proceso de ensamble?.</p>
-</div>
-<p>Ejecutaremos el siguiente comando para la muestra 1, recuerda ajustar las rutas:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py<span class="w"> </span>-1<span class="w"> </span>sample1_R1.fastq.gz<span class="w"> </span>-2<span class="w"> </span>sample1_R2.fastq.gz<span class="w"> </span>-o<span class="w"> </span>./spades_out/
-</pre></div>
-</div>
-</section>
-<section id="interpretacion-de-los-resultados-de-spades">
-<h2>** Interpretación de los resultados de SPAdes**<a class="headerlink" href="#interpretacion-de-los-resultados-de-spades" title="Permalink to this heading">#</a></h2>
-<p>Después de ejecutar SPAdes, se generará un directorio de salida (que especificaste con la opción <code class="docutils literal notranslate"><span class="pre">-o</span></code> en el comando de SPAdes). Dentro de este directorio, encontrarás una serie de archivos y subdirectorios que contienen los resultados del ensamblaje de SPAdes.</p>
-<section id="contigs-fasta-y-scaffolds-fasta">
-<h3>1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code><a class="headerlink" href="#contigs-fasta-y-scaffolds-fasta" title="Permalink to this heading">#</a></h3>
-<p>Estos dos archivos contienen los contigüidades (contigs) y ensambles finales (scaffolds) resultantes del ensamblaje.</p>
-<ul class="simple">
-<li><p>Los <code class="docutils literal notranslate"><span class="pre">contigs</span></code> son secuencias que SPAdes ha ensamblado a partir de las lecturas. Son los bloques de construcción básicos del genoma.</p></li>
-<li><p>Los <code class="docutils literal notranslate"><span class="pre">scaffolds</span></code> son conjuntos de contigs que se han unido con la ayuda de las lecturas pareadas. Los scaffolds pueden contener regiones de “N” que representan gaps o regiones desconocidas entre los contigs.</p></li>
-</ul>
-</section>
-<section id="spades-log">
-<h3>2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code><a class="headerlink" href="#spades-log" title="Permalink to this heading">#</a></h3>
-<p>Este archivo contiene el registro de la ejecución de SPAdes. Proporciona información detallada sobre cada etapa del proceso de ensamblaje.</p>
-</section>
-<section id="carpeta-kxx">
-<h3>3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code><a class="headerlink" href="#carpeta-kxx" title="Permalink to this heading">#</a></h3>
-<p>Esta carpeta contiene los resultados intermedios de las distintas etapas del ensamblaje. SPAdes realiza múltiples iteraciones de ensamblaje utilizando diferentes longitudes de k-mers. Cada una de estas iteraciones tiene su propia carpeta, llamada <code class="docutils literal notranslate"><span class="pre">KXX</span></code>, donde <code class="docutils literal notranslate"><span class="pre">XX</span></code> es la longitud del k-mer utilizado.</p>
-</section>
-<section id="params-txt">
-<h3>4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code><a class="headerlink" href="#params-txt" title="Permalink to this heading">#</a></h3>
-<p>Este archivo muestra los parámetros y opciones que se utilizaron para ejecutar SPAdes.</p>
-<hr class="docutils" />
-<p>Para interpretar los resultados de SPAdes, podríamos comenzar por revisar los archivos <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code>,contar el número de contigs/scaffolds, y también puedes calcular su longitud total y la longitud del contig o scaffold más largo.</p>
-<p>Un análisis más detallado requerirá herramientas bioinformáticas adicionales. Por ejemplo, podrías utilizar BLAST para comparar tus contigs o scaffolds con secuencias de referencia conocidas, o podrías utilizar una herramienta de visualización de genomas como Bandage para examinar visualmente el grafo de ensamblaje.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -508,20 +432,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="de_novo_02.html"
+       href="de_novo_09.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>SKESA</strong></p>
+        <p class="prev-next-title"><strong>Introducción al Análisis de Calidad de Ensamble Genómicos</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="de_novo_05.html"
+       href="meta_02.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">El periódico que explota</p>
+        <p class="prev-next-title"><strong>Asignación taxonómica</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -534,29 +458,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-spades"><strong>Introducción a SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-de-spades"><strong>Etapas de SPAdes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-uso-de-spades-para-el-ensamblaje-de-novo"><strong>Práctica: Uso de SPAdes para el ensamblaje de novo</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-los-resultados-de-spades">** Interpretación de los resultados de SPAdes**</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contigs-fasta-y-scaffolds-fasta">1. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spades-log">2. <code class="docutils literal notranslate"><span class="pre">spades.log</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carpeta-kxx">3. Carpeta <code class="docutils literal notranslate"><span class="pre">KXX</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params-txt">4. <code class="docutils literal notranslate"><span class="pre">params.txt</span></code></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
