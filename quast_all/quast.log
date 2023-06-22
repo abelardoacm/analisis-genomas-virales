@@ -1,0 +1,78 @@
+/opt/conda/envs/viralgenomics/lib/python3.6/site-packages/quast-5.0.2-py3.6.egg-info/scripts/quast.py ../spades_test/contigs.fasta ../skesa_test/sample1_contigs.fasta ../spades_test2/contigs.fasta -o ../quast_all/
+
+Version: 5.0.2
+
+System information:
+  OS: Linux-6.2.6-76060206-generic-x86_64-with-debian-bookworm-sid (linux_64)
+  Python version: 3.6.13
+  CPUs number: 12
+
+Started: 2023-06-17 22:41:42
+
+Logging to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/quast.log
+NOTICE: Maximum number of threads is set to 3 (use --threads option to set it manually)
+
+CWD: /home/abelardo/Desktop/Atgenomics/ViralGenomics/data
+Main parameters: 
+  MODE: default, threads: 3, minimum contig length: 500, minimum alignment length: 65, \
+  ambiguity: one, threshold for extensive misassembly size: 1000
+
+Contigs:
+  Pre-processing...
+  1  ../spades_test/contigs.fasta ==> spades_test_contigs
+  2  ../skesa_test/sample1_contigs.fasta ==> sample1_contigs
+  3  ../spades_test2/contigs.fasta ==> spades_test2_contigs
+
+2023-06-17 22:41:43
+Running Basic statistics processor...
+  Contig files: 
+    1  spades_test_contigs
+    2  sample1_contigs
+    3  spades_test2_contigs
+  Calculating N50 and L50...
+    1  spades_test_contigs, N50 = 745, L50 = 11, Total length = 28918, GC % = 42.87, # N's per 100 kbp =  0.00
+    2  sample1_contigs, N50 = 6270, L50 = 3, Total length = 37304, GC % = 39.23, # N's per 100 kbp =  0.00
+    3  spades_test2_contigs, N50 = 938, L50 = 7, Total length = 23993, GC % = 43.51, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/GC_content_plot.pdf
+  Drawing spades_test_contigs GC content plot...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/spades_test_contigs_GC_content_plot.pdf
+  Drawing sample1_contigs GC content plot...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/sample1_contigs_GC_content_plot.pdf
+  Drawing spades_test2_contigs GC content plot...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/spades_test2_contigs_GC_content_plot.pdf
+  Drawing Coverage histogram (bin size: 247x)...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/coverage_histogram.pdf
+  Drawing spades_test_contigs coverage histogram (bin size: 951x)...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/spades_test_contigs_coverage_histogram.pdf
+  Drawing spades_test2_contigs coverage histogram (bin size: 119x)...
+    saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/basic_stats/spades_test2_contigs_coverage_histogram.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2023-06-17 22:41:44
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating Icarus viewers...
+  2 of 2: Creating PDF with all tables and plots...
+Done
+
+2023-06-17 22:41:45
+RESULTS:
+  Text versions of total report are saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/report.html
+  PDF version (tables and plots) is saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/report.pdf
+  Icarus (contig browser) is saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/icarus.html
+  Log is saved to /home/abelardo/Desktop/Atgenomics/ViralGenomics/quast_all/quast.log
+
+Finished: 2023-06-17 22:41:45
+Elapsed time: 0:00:02.361971
+NOTICEs: 2; WARNINGs: 0; non-fatal ERRORs: 0
+
+Thank you for using QUAST!
